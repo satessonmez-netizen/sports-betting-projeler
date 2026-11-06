@@ -164,6 +164,7 @@ def main():
     ap.add_argument("matches")
     ap.add_argument("--no-tm", action="store_true")
     ap.add_argument("--no-download", action="store_true", help="CSV'leri yeniden indirme")
+    ap.add_argument("--no-news", action="store_true", help="FotMob haberlerini çekme")
     a = ap.parse_args()
     if not a.no_download:
         from data import download
@@ -190,6 +191,14 @@ def main():
                   f"{pd.Timestamp(snap.stat().st_mtime, unit='s').date()} tarihli)")
         else:
             print("  [uyarı] yaklaşan maç oranları alınamadı:", type(e).__name__)
+    news = None
+    if not a.no_news:
+        try:  # FotMob genel haber akışı (son ~10 sayfa); alınamazsa haberler atlanır
+            import fotmob_news
+            news, n_new = fotmob_news.update(10)
+            print(f"  [bilgi] FotMob haberleri güncellendi ({n_new} haber)")
+        except Exception as e:  # noqa: BLE001
+            print("  [uyarı] haberler alınamadı:", type(e).__name__)
     pack = []
     for m in matches:
         div = div_of[m["home"]]
@@ -205,6 +214,11 @@ def main():
                                       for t in (m["home"], m["away"])},
                  "son5yıl": {t: record(h, t, now) for t in (m["home"], m["away"])},
                  "karşılıklı_son5yıl": h2h(h, m["home"], m["away"], now)}
+        if news is not None:
+            import fotmob_news
+            hb = {t: fotmob_news.for_team(news, t) for t in (m["home"], m["away"])}
+            if any(hb.values()):
+                entry["haber_basliklari"] = hb
         fm = {t: fotmob_note(div, t) for t in (m["home"], m["away"])}
         if all(fm.values()):
             entry["fotmob_xg_notu"] = fm

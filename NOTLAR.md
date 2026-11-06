@@ -55,6 +55,14 @@ Adaylar: **FootyStats** ve **API-Football**. Henüz hiçbiri alınmadı. Fiyat/p
 - Kullanım: olasılığa katılmaz, `fotmob_xg_notu` olarak risk notu. 10+ hafta birikince defterde faydasına bakılacak.
 - Şans göstergesi: (attığı gol - xG). Örn. 6 Kasım 2026: Çorum +8.0 (xG 13.0, gol 21), Konyaspor -5.6, Eyüpspor -5.0. Büyük pozitif şans sürdürülemez olabilir.
 
+### FotMob haber ve takım sayfası (2026-11-06 incelendi)
+- `src/fotmob_news.py`: genel haber akışı (www.fotmob.com/api/worldnews, 20 haber/sayfa, İngilizce). Takım filtresi yok, ad aliaslarıyla biz filtreliyoruz.
+  Avrupa büyük takımları için iyi (muhtemel 11, hoca açıklaması, sakatlık süresi), **Süper Lig kapsamı zayıf** (Galatasaray son ~2 günde 0 haber).
+  Türk kulüpleri için web araması ya da kullanıcı notu gerekir.
+- FotMob takım sayfası: kadro, form, sıradaki maç, transferler, hoca geçmişi var. **Sakat/cezalı alanı güvenilmez** (son maç kadrosuna göre, eski):
+  Osimhen sakatlığı FotMob'da yoktu, Transfermarkt'ta vardı. Sakatlık kaynağı Transfermarkt olarak kalır.
+- Haberler olasılığa katılmaz, `haber_basliklari` olarak risk notu.
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 

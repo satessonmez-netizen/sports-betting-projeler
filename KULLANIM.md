@@ -57,3 +57,8 @@ python fotmob_stats.py --add-url "<FotMob istatistik sayfası adresi>" --div SP1
 ```
 Her çalıştırma `data/fotmob/snapshots/<lig>_<tarih>.csv` yazar ve `data/fotmob/history.csv`'ye ekler (aynı gün tekrar
 çalıştırınca çoğalmaz). `match_pack.py` bu geçmişten "fotmob_xg_notu" üretir (olasılığa katılmaz, risk notu).
+
+## FotMob haberleri
+`python fotmob_news.py --team "Man United"` o takımın son haberlerini yazdırır. `match_pack.py` her çalıştığında haberleri
+günceller ve `haber_basliklari` bloğuna ekler (kapatmak için `--no-news`). Genel İngilizce akış: Avrupa liglerinde iyi,
+Süper Lig'de zayıf kapsıyor.
