@@ -38,6 +38,12 @@ Veri: 9 lig, fit 2024-08→2025-06, test 2025-07→2026-06, test RPS (düşük i
 - Karar: xG için ödeme yapılmıyor. İsteğe bağlı: FotMob/Statz.ai'dan elle bakılıp 'risk notu' olarak kullanılır, olasılığa katılmaz.
 - Not: FootyStats CSV'sinin her satırı tek tırnak içinde (bozuk biçim). Ayrıştırma: önce satırı csv ile oku, sonra içindeki tek alanı tekrar ayrıştır.
 
+### İleride değerlendirilecek xG kaynakları (kullanıcı: "aklımızda kalsın, zamanla en uygununu alırız")
+- **FotMob** (fotmob.com/teams/<id>/stats): takım/oyuncu xG, xGA, xGOT, xA. Resmi API yok, kullanım şartlarını kontrol et.
+- **Statz.ai** (statz.ai/competitions/super-lig/stats): 2026/27 takım tablosu, xG, xGA, xG farkı.
+- Plan: önce haftalık elle xG notu (risk notu olarak), 10+ hafta birikince defterde faydasına bak. Fayda görülürse
+  en uygun kaynak seçilir; otomatik çekimden önce kullanım şartları ve erişim (bulut/PC) kontrol edilir.
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 
