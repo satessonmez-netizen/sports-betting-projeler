@@ -130,12 +130,20 @@ def main():
     for r in recent.itertuples():
         div_of[r.home] = r.div; div_of[r.away] = r.div
     matches = parse_matches(a.matches, names)
-    try:  # yaklaşan maçların oranları (football-data fixtures.csv); alınamazsa oransız devam
+    fixtures = None
+    snap = ROOT / "data" / "fixtures_snapshot.csv"
+    try:  # yaklaşan maçların oranları (football-data fixtures.csv); alınamazsa kayıtlı kopyaya düş
+        if a.no_download:
+            raise RuntimeError("--no-download")
         from predict import upcoming
         fixtures = upcoming()
     except Exception as e:  # noqa: BLE001
-        print("  [uyarı] yaklaşan maç oranları alınamadı:", type(e).__name__)
-        fixtures = None
+        if snap.exists():
+            fixtures = pd.read_csv(snap, parse_dates=["date"])
+            print(f"  [bilgi] oranlar kayıtlı kopyadan okundu (data/fixtures_snapshot.csv, "
+                  f"{pd.Timestamp(snap.stat().st_mtime, unit='s').date()} tarihli)")
+        else:
+            print("  [uyarı] yaklaşan maç oranları alınamadı:", type(e).__name__)
     pack = []
     for m in matches:
         div = div_of[m["home"]]
