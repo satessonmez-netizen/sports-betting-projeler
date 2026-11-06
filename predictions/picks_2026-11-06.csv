@@ -1,0 +1,16 @@
+home,away,pick,pH,pD,pA,score,conf,note
+Gaziantep,Kasimpasa,2,0.35,0.27,0.38,1-2,Düşük,Gaziantep son 5 maçı kaybetti; model dep. biraz fazla veriyor
+Eyupspor,Kocaelispor,2,0.25,0.29,0.46,0-1,Orta,Eyüpspor son 7 maçı kaybetti
+Samsunspor,Konyaspor,1,0.37,0.27,0.36,1-0,Düşük,Samsunspor son 7 maçı kaybetti; çok belirsiz
+Galatasaray,Amedspor,1,0.62,0.21,0.17,2-1,Yüksek,Osimhen sakat (TM); Amedspor formda
+Goztep,Buyuksehyr,1,0.45,0.27,0.28,2-1,Düşük,Dengeli maç
+Rizespor,Erzurumspor,1,0.44,0.27,0.29,1-0,Düşük,Rize formsuz (2 puan/5 maç); Erzurumspor terfi eden
+Corum,Fenerbahce,2,0.25,0.24,0.51,1-2,Orta,Çorum terfi eden (10 maç veri)
+Alanyaspor,Trabzonspor,2,0.21,0.25,0.54,0-1,Orta,Trabzon 5/5 galibiyet; son 2 karşılaşma 1-1
+Besiktas,Genclerbirligi,1,0.70,0.18,0.12,2-0,Yüksek,Model %65 piyasa %77: piyasaya yaklaştım (Gençlerbirliği az veri)
+Stuttgart,Werder Bremen,1,0.55,0.23,0.22,2-1,Orta,Bremen formda (11 puan/5)
+Man United,Aston Villa,1,0.38,0.27,0.35,2-1,Düşük,Yazı-tura; form Villa lehine
+Valencia,Real Madrid,2,0.14,0.20,0.66,0-2,Yüksek,Model güçlü takımı hafife alıyor; piyasaya yaklaştım
+Ath Madrid,Barcelona,2,0.29,0.24,0.47,1-2,Orta,Barça son 2 karşılaşmayı kazandı
+Napoli,Lazio,1,0.40,0.28,0.32,1-0,Düşük,Yazı-tura; Lazio formda (15 puan/5)
+Inter,Como,1,0.50,0.24,0.26,2-1,Orta,

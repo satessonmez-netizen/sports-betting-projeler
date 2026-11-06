@@ -90,14 +90,26 @@ def h2h(h, a, b, now, years=5):
     return [f"{r.date.date()} {r.home} {int(r.hg)}-{int(r.ag)} {r.away}" for r in g.itertuples()]
 
 
+_STATE = {}
+
+
+def _league_state(h_all, div, now):
+    """Lig başına model ve Elo bir kez kurulur (50 maçlık listede 9 fit yeter)."""
+    key = (div, str(now.date()))
+    if key not in _STATE:
+        lg = h_all[h_all["div"] == div].reset_index(drop=True)
+        tr = lg[lg.date >= now - pd.Timedelta(days=365 * 4)]
+        m = DixonColes().fit(tr, now)
+        diffs, r = elo.compute(lg)
+        win = (lg.date >= now - pd.Timedelta(days=365 * 4)).to_numpy()
+        eb, ec = elo.fit_map(diffs[win], outcome(lg.hg.to_numpy(), lg.ag.to_numpy())[win])
+        _STATE[key] = (tr, m, r, eb, ec)
+    return _STATE[key]
+
+
 def model_probs(h_all, div, home, away, now):
-    lg = h_all[h_all["div"] == div].reset_index(drop=True)
-    tr = lg[lg.date >= now - pd.Timedelta(days=365 * 4)]
-    m = DixonColes().fit(tr, now)
+    tr, m, r, eb, ec = _league_state(h_all, div, now)
     p = m.predict(home, away)
-    diffs, r = elo.compute(lg)
-    win = (lg.date >= now - pd.Timedelta(days=365 * 4)).to_numpy()
-    eb, ec = elo.fit_map(diffs[win], outcome(lg.hg.to_numpy(), lg.ag.to_numpy())[win])
     e = elo.probs([r.get(home, elo.NEW_START) + elo.HFA - r.get(away, elo.NEW_START)], eb, ec)[0]
     mix = [0.5 * p[k] + 0.5 * v for k, v in zip(("pH", "pD", "pA"), e)]
     mx = m.score_matrix(home, away)

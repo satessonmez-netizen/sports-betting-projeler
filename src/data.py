@@ -62,6 +62,11 @@ def load() -> pd.DataFrame:
             "hst": pd.to_numeric(df.get("HST"), errors="coerce"), "ast": pd.to_numeric(df.get("AST"), errors="coerce"),
             "oH": o["oH"], "oD": o["oD"], "oA": o["oA"],
         })
+        # Bet365 açılış ve kapanış (aynı şirketin hareketini ölçmek için), Pinnacle kapanış
+        for pre, cols in (("bo", ("B365H", "B365D", "B365A")), ("bc", ("B365CH", "B365CD", "B365CA")),
+                          ("pc", ("PSCH", "PSCD", "PSCA"))):
+            for k, c in zip("HDA", cols):
+                res[f"{pre}{k}"] = pd.to_numeric(df[c], errors="coerce") if c in df else np.nan
         frames.append(res.dropna(subset=["date"]))
     all_ = pd.concat(frames, ignore_index=True).sort_values("date").reset_index(drop=True)
     return all_

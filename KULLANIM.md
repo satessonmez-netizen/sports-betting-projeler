@@ -38,3 +38,13 @@ en değerli 5 oyuncu, sakat/cezalı listesi ve eksik oyuncuların kadro değerin
 - Transfermarkt'ın kullanım şartları otomatik çekimi kısıtlayabilir. Sorumluluk sende.
 - Amedspor, Çorum gibi Transfermarkt veri setinde olmayan takımlar siteden aranır. İlk sonuç otomatik
   kaydedilir. Yanlışsa `data/tm_clubs_manual.csv` dosyasında düzelt.
+
+## Tahmin defteri (her hafta)
+```bash
+cd src
+python ledger.py add --picks ../predictions/picks_<tarih>.csv --pack ../output/match_pack_<tarih>.json
+python ledger.py settle     # maçlar bitince
+python ledger.py report     # sayılarla rapor
+python ledger.py errors     # yanıldığım maçlar
+```
+Ayrıntılar `src/ledger.py` başındaki açıklamada.

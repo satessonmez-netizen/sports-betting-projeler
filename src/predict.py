@@ -28,6 +28,8 @@ def upcoming() -> pd.DataFrame:
     df["date"] = pd.to_datetime(df["Date"], dayfirst=True, format="mixed")
     for k in "HDA":
         df[f"o{k}"] = pd.to_numeric(df.get(f"Avg{k}"), errors="coerce")
+        df[f"bo{k}"] = pd.to_numeric(df.get(f"B365{k}"), errors="coerce")
+    df["time"] = df.get("Time")
     return df.rename(columns={"Div": "div", "HomeTeam": "home", "AwayTeam": "away"})
 
 
