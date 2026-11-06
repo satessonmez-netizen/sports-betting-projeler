@@ -100,7 +100,11 @@ def parse_injuries(html: str) -> list[dict]:
                 continue
             cells = [c.get_text(" ", strip=True) for c in tr.find_all("td", recursive=False)]
             cells = [c for c in cells if c]
-            out.append({"name": a.get_text(strip=True), "cells": cells})
+            # Gerçek sakatlık/ceza satırlarında tarih (başlangıç/bitiş) olur. Tarihi olmayan satırlar
+            # farklı bir tablodan geliyor (ör. 3 sarı kart uyarısı gibi sayaçlar): 'diğer' olarak ayır.
+            n_dates = sum(bool(re.search(r"\d{2}/\d{2}/\d{4}|[A-Z][a-z]{2} \d{1,2}, \d{4}", c)) for c in cells)
+            out.append({"name": a.get_text(strip=True), "cells": cells,
+                        "tür": "sakat_ceza" if n_dates >= 1 else "diğer"})
     return out
 
 
@@ -154,13 +158,16 @@ def club_info(fd_name: str, div: str) -> dict:
         for i in inj:
             i["değer"] = vals.get(i["name"])
         total = sum(v for v in vals.values() if v)
-        out_val = sum(i["değer"] for i in inj if i.get("değer"))
+        inj_real = [i for i in inj if i["tür"] == "sakat_ceza"]
+        inj_other = [i for i in inj if i["tür"] != "sakat_ceza"]
+        out_val = sum(i["değer"] for i in inj_real if i.get("değer"))
         res.update({
             "kadro_değeri_milyon_€": round(total / 1e6, 1) if total else None,
             "en_değerli_5": sorted(([p["name"], round(p["value"] / 1e6, 1)] for p in squad if p["value"]),
                                    key=lambda x: -x[1])[:5],
             "oyuncu_sayısı": len(squad),
-            "sakat_ceza_listesi": inj,
+            "sakat_ceza_listesi": inj_real,
+            "diğer_tablo_satırları_(muhtemelen_kart_uyarısı)": inj_other,
             "eksiklerin_değeri_milyon_€": round(out_val / 1e6, 1),
             "eksiklerin_kadro_payı_%": round(100 * out_val / total, 1) if total else None,
         })
