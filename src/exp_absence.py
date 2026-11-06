@@ -54,20 +54,22 @@ def build_abs():
             hist = [t for t in per_club.get(cid, []) if g.date - pd.Timedelta(days=60) <= t[0] < g.date][-6:]
             cur = next((t[2] for t in per_club.get(cid, []) if t[1] == g.game_id), None)
             if len(hist) < 3 or not cur:
-                rows.append((g.game_id, side, np.nan, np.nan))
+                rows.append((g.game_id, side, np.nan, np.nan, np.nan, np.nan))
                 continue
+            prev = [t for t in per_club.get(cid, []) if t[0] < g.date]
+            rest = min((g.date - prev[-1][0]).days, 14) if prev else np.nan
             active = set().union(*[t[2] for t in hist])
             vals = {p: value(p, g.date) for p in active}
             vals = {p: v for p, v in vals.items() if v == v and v > 0}
             tot = sum(vals.values())
             if tot <= 0:
-                rows.append((g.game_id, side, np.nan, np.nan))
+                rows.append((g.game_id, side, np.nan, np.nan, np.nan, np.nan))
                 continue
             ab = sorted([v for p, v in vals.items() if p not in cur])
-            rows.append((g.game_id, side, sum(ab) / tot, sum(ab[-3:]) / tot))
-    a = pd.DataFrame(rows, columns=["game_id", "side", "abs_share", "abs_top3"])
-    h = a[a.side == "home"].set_index("game_id")[["abs_share", "abs_top3"]].add_prefix("h_")
-    w = a[a.side == "away"].set_index("game_id")[["abs_share", "abs_top3"]].add_prefix("a_")
+            rows.append((g.game_id, side, sum(ab) / tot, sum(ab[-3:]) / tot, tot, rest))
+    a = pd.DataFrame(rows, columns=["game_id", "side", "abs_share", "abs_top3", "val", "rest"])
+    h = a[a.side == "home"].set_index("game_id")[["abs_share", "abs_top3", "val", "rest"]].add_prefix("h_")
+    w = a[a.side == "away"].set_index("game_id")[["abs_share", "abs_top3", "val", "rest"]].add_prefix("a_")
     return target.set_index("game_id")[["date", "home_club_id", "away_club_id"]].join(h).join(w).reset_index(), clubs
 
 
@@ -122,7 +124,8 @@ def main():
         for c in idx.get((r.h_id, r.a_id), []):
             if abs((c.date - r.date).days) <= 1:
                 rows.append({**r._asdict(), "h_abs": c.h_abs_share, "a_abs": c.a_abs_share,
-                             "h_top3": c.h_abs_top3, "a_top3": c.a_abs_top3})
+                             "h_top3": c.h_abs_top3, "a_top3": c.a_abs_top3,
+                             "h_val": c.h_val, "a_val": c.a_val, "h_rest": c.h_rest, "a_rest": c.a_rest})
                 break
     d = pd.DataFrame(rows)
     print(f"Eşleşen maç: {len(d)} / {len(bt)} (kapsam %{100*len(d)/len(bt):.0f})")
@@ -157,6 +160,36 @@ def main():
     print(f"En iyi karışım ağırlığı (model payı) w={w:.2f} (fit dönemi)")
     print(f"Test RPS: piyasa {per_rps(mk_close[test], y[test]).mean():.4f} | model {per_rps(mdl[test], y[test]).mean():.4f} | "
           f"karışım {per_rps(mix[test], y[test]).mean():.4f} (karışım-piyasa {dm_.mean():+.5f}, %95 [{lo:+.5f}, {hi:+.5f}])")
+    # 3) Yeni özellikler model üstünde: takım değeri oranı ve dinlenme farkı
+    print("\n=== 3) Takım değeri ve yorgunluk, MODELİ iyileştiriyor mu? (test RPS) ===")
+    dd = d.dropna(subset=["h_val", "a_val", "h_rest", "a_rest"])
+    yy = outcome(dd.hg.to_numpy(), dd.ag.to_numpy())
+    fit2 = (dd.date < SPLIT).to_numpy()
+    te2 = ~fit2
+    Pm = dd[["mH", "mD", "mA"]].to_numpy()
+    Pk = implied(dd.oH.to_numpy(), dd.oD.to_numpy(), dd.oA.to_numpy())
+    feats = {
+        "takım değeri (log oran)": (np.log(dd.h_val) - np.log(dd.a_val)).to_numpy(),
+        "dinlenme farkı (gün, +-5)": (dd.h_rest.clip(2, 10) - dd.a_rest.clip(2, 10)).clip(-5, 5).to_numpy(),
+    }
+    feats["ikisi birlikte"] = np.column_stack([feats["takım değeri (log oran)"], feats["dinlenme farkı (gün, +-5)"]])
+
+    def adjm(P, X, b):
+        X = X.reshape(len(P), -1)
+        s_ = X @ np.atleast_1d(b)
+        Q = P * np.column_stack([np.exp(s_), np.ones(len(P)), np.exp(-s_)])
+        return Q / Q.sum(1, keepdims=True)
+
+    from scipy.optimize import minimize
+    for name, X in feats.items():
+        for bn, P in (("model", Pm), ("piyasa kapanış", Pk)):
+            k = 1 if X.ndim == 1 else X.shape[1]
+            r_ = minimize(lambda b: logloss(adjm(P[fit2], X[fit2], b), yy[fit2]), np.zeros(k), method="Nelder-Mead")
+            base = per_rps(P[te2], yy[te2])
+            new = per_rps(adjm(P[te2], X[te2], r_.x), yy[te2])
+            lo, hi = boot(new - base)
+            print(f"{bn:15s} | {name:26s} | beta={np.round(r_.x, 3)} | RPS {base.mean():.4f} → {new.mean():.4f} "
+                  f"(fark {(new - base).mean():+.5f}, %95 [{lo:+.5f}, {hi:+.5f}]) n_test={te2.sum()}")
     d.to_csv(REPORTS / "exp_absence_data.csv", index=False)
 
 

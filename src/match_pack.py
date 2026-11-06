@@ -125,6 +125,18 @@ def model_probs(h_all, div, home, away, now):
     }
 
 
+VALUE_BETA = 0.098  # deney: takım değeri oranı, model üstünde test RPS -0.0007 (zayıf kanıt, %95 aralık sıfırı içeriyor)
+
+
+def value_tilt(model, vh, va):
+    """Model olasılığını kadro değeri oranına göre hafifçe kaydır (DENEYSEL)."""
+    x = float(np.log(vh) - np.log(va))
+    p = np.array([model["1"], model["X"], model["2"]]) * np.array([np.exp(VALUE_BETA * x), 1.0, np.exp(-VALUE_BETA * x)])
+    p = p / p.sum()
+    return {"1": round(float(p[0]), 3), "X": round(float(p[1]), 3), "2": round(float(p[2]), 3),
+            "not": "DENEYSEL: takım değeri oranı (beta=0.098); kanıt zayıf"}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("matches")
@@ -180,6 +192,10 @@ def main():
         if not a.no_tm:
             import tm_scraper
             entry["transfermarkt"] = {t: tm_scraper.club_info(t, div) for t in (m["home"], m["away"])}
+            vh = entry["transfermarkt"][m["home"]].get("kadro_değeri_milyon_€")
+            va = entry["transfermarkt"][m["away"]].get("kadro_değeri_milyon_€")
+            if vh and va:
+                entry["model_değer_ayarlı"] = value_tilt(entry["model"], vh, va)
         pack.append(entry)
     out_dir = ROOT / "output"
     out_dir.mkdir(exist_ok=True)

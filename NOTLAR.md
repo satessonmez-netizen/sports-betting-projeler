@@ -26,13 +26,19 @@ Veri: 9 lig, fit 2024-08→2025-06, test 2025-07→2026-06, test RPS (düşük i
   sayar, gerçek sakatlığı ayırmaz; yani 'sakatlık etkisiz' demek için KESİN kanıt değil, ama iyileşme göstermedi.
 - Sonuç: sakatlığa göre elle yaptığım olasılık ayarları **kanıtsız**. Defterde ayrıca izleniyor (ilk tahmin ve revize ayrı).
 
+### Yeni özellikler, MODEL üstünde (aynı test)
+- **Takım değeri oranı** (log, aktif kadro piyasa değeri toplamı): model test RPS 0.2007 → 0.2001 (fark -0.0007, %95 [-0.0016, +0.0002]).
+  Yön doğru, etki küçük ve istatistiksel olarak kesin değil. Canlı hatta DENEYSEL olarak eklendi (`model_değer_ayarlı`, beta=0.098).
+- **Yorgunluk (son maça kaç gün, tüm turnuvalar):** etki yok (beta ≈ -0.01, RPS değişmedi). Eklenmedi.
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 
 ## Kurallar
 - Tahmin maç başlamadan kaydedilir. Başlamış maçın tahmini 'late' sayılır.
 - Piyasadan >=8 puan ayrıştığımda nedenini yaz; güçlü takım maçlarında piyasaya yaklaş (model hafife alıyor).
-- **Varsayılan olasılık = piyasa açılış oranı.** Model/ayarlar sadece açıkça gerekçelendirilen sapmalarda, 'kanıtsız' etiketiyle.
+- **Kullanıcının kararı (6 Kasım 2026): tahminleri BEN araştırıp kendi analizimle yazarım.** Bahisçi oranları sadece KARNE (kıyas) olarak kullanılır, tahmin oradan kopyalanmaz. 'Piyasa tabanlı' öneri geri çekildi.
+- Amaç: bahisçiyi geçmek değil; kendi tahminimin kalitesini dürüstçe ölçmek ve zayıf yanları düzeltmek. Gerçek sonuçlar defterde piyasa ile kıyaslanır.
 - Güven etiketleri: Yüksek (>=%60 ve piyasayla uyumlu), Orta, Düşük (yazı-tura).
 
 ## Denenip bırakılan veri kaynakları (ileride yeniden düşünülecek)
