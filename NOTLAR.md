@@ -38,11 +38,15 @@ Veri: 9 lig, fit 2024-08→2025-06, test 2025-07→2026-06, test RPS (düşük i
 - Karar: xG için ödeme yapılmıyor. İsteğe bağlı: FotMob/Statz.ai'dan elle bakılıp 'risk notu' olarak kullanılır, olasılığa katılmaz.
 - Not: FootyStats CSV'sinin her satırı tek tırnak içinde (bozuk biçim). Ayrıştırma: önce satırı csv ile oku, sonra içindeki tek alanı tekrar ayrıştır.
 
-### İleride değerlendirilecek xG kaynakları (kullanıcı: "aklımızda kalsın, zamanla en uygununu alırız")
-- **FotMob** (fotmob.com/teams/<id>/stats): takım/oyuncu xG, xGA, xGOT, xA. Resmi API yok, kullanım şartlarını kontrol et.
-- **Statz.ai** (statz.ai/competitions/super-lig/stats): 2026/27 takım tablosu, xG, xGA, xG farkı.
-- Plan: önce haftalık elle xG notu (risk notu olarak), 10+ hafta birikince defterde faydasına bak. Fayda görülürse
-  en uygun kaynak seçilir; otomatik çekimden önce kullanım şartları ve erişim (bulut/PC) kontrol edilir.
+### İleride satın alma adayı ücretli kaynaklar (kullanıcı: "aklımızda kalsın, zamanla en uygununu alırız")
+Adaylar: **FootyStats** ve **API-Football**. Henüz hiçbiri alınmadı. Fiyat/plan bilgisi doğrulanmadı, karar anında resmi sitelerden kontrol edilecek.
+- **FootyStats** (ücretli): maç bazlı CSV (xG, şut, topa sahip olma, korner, kart, hakem, oranlar, 1X2/ÜST/KG), lig ve sezon başına indirme.
+  Faydası: geçmiş çoklu sezon xG ile xG'nin tahmini iyileştirip iyileştirmediğini TEST etmeyi sağlar. Dosya biçimi bozuk (satır tek tırnakta), ayrıştırma notu yukarıda.
+- **API-Football** (ücretsiz plan işe yaramadı; ücretli plan gerekir): güncel sezon, sakatlık/ceza, ilk 11, fikstür, API ile otomasyon.
+  Faydası: bugün elle ve kullanıcının PC'sinden çektiğimiz Transfermarkt bilgisini otomatikleştirir. Hesap geçmişte askıya alınmıştı (sebep bilinmiyor).
+- **Ne zaman karar verilir:** defterde 10+ hafta (100+ geçerli maç) birikince. Soru: tahminlerim hangi tür maçta yanlış, eksik olan bilgi xG mi, sakatlık/ilk 11 mi?
+  Hangisi eksikse o kaynak alınır. İki bilgi de şu an KANITSIZ (xG tek sezon testte gollerden iyi çıkmadı, eksik oyuncu değeri iyileştirmedi).
+- Ücretsiz alternatif (elle, olasılığa katmadan risk notu): FotMob ve Statz.ai takım xG sayfaları.
 
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
