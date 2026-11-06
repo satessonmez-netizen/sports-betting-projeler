@@ -31,6 +31,13 @@ Veri: 9 lig, fit 2024-08→2025-06, test 2025-07→2026-06, test RPS (düşük i
   Yön doğru, etki küçük ve istatistiksel olarak kesin değil. Canlı hatta DENEYSEL olarak eklendi (`model_değer_ayarlı`, beta=0.098).
 - **Yorgunluk (son maça kaç gün, tüm turnuvalar):** etki yok (beta ≈ -0.01, RPS değişmedi). Eklenmedi.
 
+### xG (beklenen gol) araştırması
+- FootyStats maç CSV'si (Premier Lig 2018/19, 380 maç) incelendi: xG var, ama indirme ÜCRETLİ, çoklu sezon/lig alınamıyor.
+- Tek sezon testi (330 maç): geçmiş 8 maç xG farkı ile sonraki maç gol farkı korelasyonu 0.456; gol farkı 0.458, isabetli şut 0.456. xG daha iyi değil.
+- FBref Ocak 2026'da xG verilerini kaldırdı. Understat Süper Lig'i kapsamıyor (üçüncü taraf bilgi). Ücretsiz toplu Süper Lig xG verisi bulunamadı.
+- Karar: xG için ödeme yapılmıyor. İsteğe bağlı: FotMob/Statz.ai'dan elle bakılıp 'risk notu' olarak kullanılır, olasılığa katılmaz.
+- Not: FootyStats CSV'sinin her satırı tek tırnak içinde (bozuk biçim). Ayrıştırma: önce satırı csv ile oku, sonra içindeki tek alanı tekrar ayrıştır.
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 
