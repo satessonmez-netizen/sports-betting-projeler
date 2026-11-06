@@ -16,12 +16,23 @@ güncellenir. Kural: **100 maçtan az örnekten sonuç çıkarma.** Bir ders ekl
 - Model güçlü takımları, özellikle deplasmandakileri, hafife alıyor (9 ligde de). Piyasa da bir miktar.
 - Yeni terfi eden takımlarda (örn. Amedspor, Çorum) veri çok az (10 maç): belirsizlik büyük.
 
+## Deney sonuçları: piyasa karşısında model ve sakatlık (2026-11-06, ~2700 test maçı, güvenilir)
+Veri: 9 lig, fit 2024-08→2025-06, test 2025-07→2026-06, test RPS (düşük iyi).
+- **Model, piyasanın üstüne bilgi eklemiyor.** Logloss'a göre en iyi karışımda model payı %0 (hem kapanış hem açılış oranına karşı).
+  Test RPS: piyasa 0.1946-0.1952, model 0.2001-0.2007. Karışım = piyasa.
+- **Açılış oranı ≈ kapanış oranı** (0.1948 vs 0.1946): piyasa ilk günden neredeyse "doğru". Tahmin günler önce yazılsa bile açılış oranı yeterli.
+- **'Eksik oyuncu değeri' (kadroda olmayan değerli oyuncular) tahmini iyileştirmedi.** Katsayı beklenen yönde (+0.3..0.7)
+  ama test RPS farkı ~+0.0001 (%95 aralık sıfırı kapsıyor), hem model hem piyasa üstünde. Ölçüm kadro dışını (rotasyon dahil)
+  sayar, gerçek sakatlığı ayırmaz; yani 'sakatlık etkisiz' demek için KESİN kanıt değil, ama iyileşme göstermedi.
+- Sonuç: sakatlığa göre elle yaptığım olasılık ayarları **kanıtsız**. Defterde ayrıca izleniyor (ilk tahmin ve revize ayrı).
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 
 ## Kurallar
 - Tahmin maç başlamadan kaydedilir. Başlamış maçın tahmini 'late' sayılır.
 - Piyasadan >=8 puan ayrıştığımda nedenini yaz; güçlü takım maçlarında piyasaya yaklaş (model hafife alıyor).
+- **Varsayılan olasılık = piyasa açılış oranı.** Model/ayarlar sadece açıkça gerekçelendirilen sapmalarda, 'kanıtsız' etiketiyle.
 - Güven etiketleri: Yüksek (>=%60 ve piyasayla uyumlu), Orta, Düşük (yazı-tura).
 
 ## Denenip bırakılan veri kaynakları (ileride yeniden düşünülecek)
