@@ -7,15 +7,21 @@ import argparse
 import numpy as np
 import pandas as pd
 
+import elo
+
 from config import LEAGUES, REPORTS
 from data import load
 from metrics import brier, implied, logloss, outcome, rps
 from model import DixonColes
 
 
-def run(div: str, start: str, half_life: float, reg: float = 5.0, window_years: int = 4, step_days: int = 14):
+def run(div: str, start: str, half_life: float, reg: float = 5.0, shift: float = 0.0,
+        ha_reg=None, window_years: int = 4, step_days: int = 14):
     d = load()
-    d = d[(d["div"] == div) & d.hg.notna()].reset_index(drop=True)
+    d = d[d["div"] == div].reset_index(drop=True)
+    d["elo_diff"] = elo.compute(d)[0]
+    d = d[d.hg.notna()].reset_index(drop=True)
+    yy = outcome(d.hg.to_numpy(), d.ag.to_numpy())
     start = pd.Timestamp(start)
     test = d[d.date >= start]
     rows = []
@@ -26,16 +32,17 @@ def run(div: str, start: str, half_life: float, reg: float = 5.0, window_years: 
         chunk = d[(d.date >= cur) & (d.date < nxt)]
         if len(chunk):
             train = d[(d.date < cur) & (d.date >= cur - pd.Timedelta(days=365 * window_years))]
-            m = DixonColes(half_life, reg).fit(train, cur)
+            m = DixonColes(half_life, reg, shift, ha_reg).fit(train, cur)
+            ti = train.index
+            eb, ec = elo.fit_map(d.elo_diff[ti].to_numpy(), yy[ti])
             for r in chunk.itertuples():
-                if not (m.known(r.home) and m.known(r.away)):
-                    continue
                 p = m.predict(r.home, r.away)
+                e = elo.probs([r.elo_diff], eb, ec)[0]
                 rows.append((r.date, r.home, r.away, r.hg, r.ag, p["pH"], p["pD"], p["pA"],
-                             r.oH, r.oD, r.oA))
+                             r.oH, r.oD, r.oA, *e))
         cur = nxt
     out = pd.DataFrame(rows, columns=["date", "home", "away", "hg", "ag", "mH", "mD", "mA",
-                                      "oH", "oD", "oA"])
+                                      "oH", "oD", "oA", "eH", "eD", "eA"])
     return out
 
 
@@ -59,11 +66,14 @@ if __name__ == "__main__":
     ap.add_argument("--div", default="T1")
     ap.add_argument("--from", dest="start", default="2024-08-01")
     ap.add_argument("--half-life", type=float, default=250)
+    ap.add_argument("--w", type=float, default=0.5, help="Elo karışım ağırlığı")
     a = ap.parse_args()
     divs = list(LEAGUES) if a.div == "all" else [a.div]
     results = []
     for dv in divs:
         o = run(dv, a.start, a.half_life)
+        for k in "HDA":
+            o[f"m{k}"] = (1 - a.w) * o[f"m{k}"] + a.w * o[f"e{k}"]
         results.append(report(o, LEAGUES[dv]))
         o.to_csv(REPORTS / f"backtest_{dv}.csv", index=False)
         print(results[-1])

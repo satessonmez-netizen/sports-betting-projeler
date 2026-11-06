@@ -20,30 +20,44 @@ python predict.py                # yaklaşan maçlar -> predictions/log.csv
 python predict.py --settle       # biten maçları işle, model vs piyasa skoru
 ```
 
-## Model (v1)
-Zaman ağırlıklı Dixon-Coles (Poisson + düşük skor düzeltmesi), lig bazında, son 4 yıl, yarı ömür 250 gün, L2 düzenleme.
-Sonuçlar (1X2) dışında Over 2.5 ve KG Var olasılıkları da loglanıyor.
+## Model (v2)
+DC (Dixon-Coles, Poisson + düşük skor düzeltmesi, lig bazında, son 4 yıl, yarı ömür 250 gün) ile gol farkı ağırlıklı
+**Elo** %50-%50 karışımı. Elo puanları sıralı logit ile 1X2 olasılığına çevriliyor.
+Over 2.5 ve KG Var olasılıkları da loglanıyor (yalnızca DC'den).
 
-## Backtest sonucu (2024-08 → bugün, her 14 günde yeniden fit)
-| Lig | Model RPS | Bahisçi RPS | Model isabet | Bahisçi isabet |
+## Backtest sonucu (2024-08 → bugün, her 14 günde yeniden fit, v2)
+| Lig | Model RPS | Bahisçi RPS | Fark | v1 farkı |
 |---|---|---|---|---|
-| Süper Lig | 0.1970 | 0.1850 | %53.1 | %58.2 |
-| Premier Lig | 0.2068 | 0.2011 | %49.5 | %51.7 |
-| La Liga | 0.1984 | 0.1910 | %53.9 | %55.4 |
-| Bundesliga | 0.2057 | 0.1977 | %51.4 | %54.5 |
-| Serie A | 0.1974 | 0.1904 | %53.9 | %55.3 |
-| Ligue 1 | 0.2059 | 0.2002 | %53.8 | %54.8 |
-| Eredivisie | 0.1996 | 0.1920 | %52.4 | %54.0 |
-| Primeira Liga | 0.1849 | 0.1780 | %55.5 | %56.1 |
-| Belçika | 0.2075 | 0.2011 | %48.9 | %51.4 |
+| Süper Lig | 0.1962 | 0.1853 | +0.0109 | +0.0120 |
+| Premier Lig | 0.2057 | 0.2012 | +0.0045 | +0.0057 |
+| La Liga | 0.1977 | 0.1903 | +0.0074 | +0.0074 |
+| Bundesliga | 0.2055 | 0.1985 | +0.0070 | +0.0080 |
+| Serie A | 0.1967 | 0.1903 | +0.0064 | +0.0070 |
+| Ligue 1 | 0.2058 | 0.2001 | +0.0057 | +0.0057 |
+| Eredivisie | 0.1978 | 0.1914 | +0.0064 | +0.0076 |
+| Primeira Liga | 0.1841 | 0.1782 | +0.0059 | +0.0069 |
+| Belçika | 0.2067 | 0.2013 | +0.0054 | +0.0064 |
 
-**Dürüst yorum:** v1 her ligde piyasanın gerisinde. Süper Lig'de fark en büyük. Bu beklenen bir sonuç:
-oranlar sakatlık, kadro, motivasyon gibi bizim görmediğimiz bilgiyi içeriyor.
-Hedef: farkı kapatmak, sonra (varsa) hangi segmentte geçebildiğimizi bulmak.
+(Fark: modelin RPS'i − bahisçinin RPS'i. 0'a ne kadar yakınsa o kadar iyi. v1 sütunundaki rakamlar yaklaşık, v1'de
+bilinmeyen takımlı maçlar dışarıda kalıyordu, küme biraz farklı.)
+
+**Dürüst yorum:** Elo karışımı her ligde küçük ama tutarlı bir iyileşme verdi. Hâlâ hiçbir ligde piyasayı geçmiyoruz.
+Süper Lig'de fark en büyük.
+
+### Denenip işe yaramayanlar (Süper Lig, RPS)
+| Deneme | RPS |
+|---|---|
+| Elo'suz DC | 0.1976 |
+| + yeni terfi eden takım için negatif başlangıç (0.15) | 0.1981 (kötüleşti) |
+| + takıma özel ev avantajı | 0.1983 (kötüleşti) |
+| DC + Elo (%50) | **0.1962** |
+
+Bu iki seçenek kodda duruyor (`newcomer_shift`, `team_ha_reg`) ama varsayılan olarak kapalı.
 
 ## Yol haritası
-- [ ] Yeni terfi eden takımlar için lig-seviyesi başlangıç değeri (şu an Hull gibi takımlar sapıyor)
-- [ ] Ev sahibi avantajı takım bazlı, Elo ile harman
+- [x] Yeni takımlar: bilinmeyen takım artık atlanmıyor, lig ortalaması alınıyor
+- [x] Elo ile harman
 - [ ] xG verisi (ücretsiz kaynak araştırılacak)
+- [ ] Sakatlık/kadro bilgisi, piyasanın bizden iyi olduğu ana alan
 - [ ] Piyasa oranını özellik olarak kullanan hibrit model
 - [ ] Haftalık otomatik rapor, kalibrasyon grafiği

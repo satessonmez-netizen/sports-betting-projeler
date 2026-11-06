@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import requests
 
+import elo
 from config import LEAGUES, PRED
 from data import download, load
 from metrics import brier, implied, outcome, rps
@@ -40,11 +41,16 @@ def make() -> None:
     for dv, g in fx.groupby("div"):
         tr = hist[(hist["div"] == dv) & (hist.date >= now - pd.Timedelta(days=365 * 4))]
         m = DixonColes().fit(tr, now)
+        lg = hist[hist["div"] == dv].reset_index(drop=True)
+        diffs, ratings = elo.compute(lg)
+        win = (lg.date >= now - pd.Timedelta(days=365 * 4)).to_numpy()
+        eb, ec = elo.fit_map(diffs[win], outcome(lg.hg.to_numpy(), lg.ag.to_numpy())[win])
         for r in g.itertuples():
-            if not (m.known(r.home) and m.known(r.away)):
-                print("bilinmeyen takım, atlandı:", r.home, r.away)
-                continue
             p = m.predict(r.home, r.away)
+            d_ = (ratings.get(r.home, elo.NEW_START) + elo.HFA - ratings.get(r.away, elo.NEW_START))
+            e = elo.probs([d_], eb, ec)[0]
+            W = 0.5  # DC + Elo karışımı (backtest'te en iyi)
+            p["pH"], p["pD"], p["pA"] = [(1 - W) * p[k] + W * v for k, v in zip(("pH", "pD", "pA"), e)]
             rows.append(dict(date=r.date.date(), div=dv, home=r.home, away=r.away,
                              mH=p["pH"], mD=p["pD"], mA=p["pA"], mOver25=p["pOver25"],
                              mBTTS=p["pBTTS"], oH=r.oH, oD=r.oD, oA=r.oA, hg=np.nan, ag=np.nan))
