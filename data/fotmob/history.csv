@@ -1,0 +1,417 @@
+date,div,season_id,team,stat,value,sub_value,matches,fd_name
+2026-11-06,T1,42167,Trabzonspor,FotMob Puanı,7.21,0.0,10,Trabzonspor
+2026-11-06,T1,42167,Galatasaray,FotMob Puanı,7.12,0.0,10,Galatasaray
+2026-11-06,T1,42167,Amed Sportif,FotMob Puanı,7.1,0.0,10,Amedspor
+2026-11-06,T1,42167,Fenerbahçe,FotMob Puanı,7.05,0.0,10,Fenerbahce
+2026-11-06,T1,42167,Beşiktaş,FotMob Puanı,7.02,0.0,10,Besiktas
+2026-11-06,T1,42167,Kasımpaşa,FotMob Puanı,7.0,0.0,11,Kasimpasa
+2026-11-06,T1,42167,Göztepe,FotMob Puanı,6.91,0.0,10,Goztep
+2026-11-06,T1,42167,Kocaelispor,FotMob Puanı,6.91,0.0,10,Kocaelispor
+2026-11-06,T1,42167,Çorum FK,FotMob Puanı,6.88,0.0,10,Corum
+2026-11-06,T1,42167,Rizespor,FotMob Puanı,6.86,0.0,10,Rizespor
+2026-11-06,T1,42167,Gençlerbirliği,FotMob Puanı,6.77,0.0,10,Genclerbirligi
+2026-11-06,T1,42167,Başakşehir,FotMob Puanı,6.7,0.0,10,Buyuksehyr
+2026-11-06,T1,42167,Erzurumspor FK,FotMob Puanı,6.7,0.0,10,Erzurumspor
+2026-11-06,T1,42167,Alanyaspor,FotMob Puanı,6.68,0.0,10,Alanyaspor
+2026-11-06,T1,42167,Gaziantep FK,FotMob Puanı,6.65,0.0,11,Gaziantep
+2026-11-06,T1,42167,Konyaspor,FotMob Puanı,6.63,0.0,10,Konyaspor
+2026-11-06,T1,42167,Samsunspor,FotMob Puanı,6.53,0.0,10,Samsunspor
+2026-11-06,T1,42167,Eyüpspor,FotMob Puanı,6.3,0.0,10,Eyupspor
+2026-11-06,T1,42167,Galatasaray,xG,23.6,23.0,10,Galatasaray
+2026-11-06,T1,42167,Amed Sportif,xG,22.3,25.0,10,Amedspor
+2026-11-06,T1,42167,Fenerbahçe,xG,20.5,24.0,10,Fenerbahce
+2026-11-06,T1,42167,Göztepe,xG,19.5,21.0,10,Goztep
+2026-11-06,T1,42167,Trabzonspor,xG,19.1,24.0,10,Trabzonspor
+2026-11-06,T1,42167,Beşiktaş,xG,17.8,20.0,10,Besiktas
+2026-11-06,T1,42167,Başakşehir,xG,17.0,17.0,10,Buyuksehyr
+2026-11-06,T1,42167,Rizespor,xG,14.1,11.0,10,Rizespor
+2026-11-06,T1,42167,Kasımpaşa,xG,13.6,17.0,11,Kasimpasa
+2026-11-06,T1,42167,Çorum FK,xG,13.0,21.0,10,Corum
+2026-11-06,T1,42167,Gaziantep FK,xG,12.0,9.0,11,Gaziantep
+2026-11-06,T1,42167,Kocaelispor,xG,11.8,11.0,10,Kocaelispor
+2026-11-06,T1,42167,Samsunspor,xG,11.7,10.0,10,Samsunspor
+2026-11-06,T1,42167,Konyaspor,xG,11.6,6.0,10,Konyaspor
+2026-11-06,T1,42167,Gençlerbirliği,xG,11.3,12.0,10,Genclerbirligi
+2026-11-06,T1,42167,Alanyaspor,xG,10.7,9.0,10,Alanyaspor
+2026-11-06,T1,42167,Erzurumspor FK,xG,8.5,9.0,10,Erzurumspor
+2026-11-06,T1,42167,Eyüpspor,xG,8.0,3.0,10,Eyupspor
+2026-11-06,T1,42167,Amed Sportif,Yenilen xG,8.7,11.0,10,Amedspor
+2026-11-06,T1,42167,Beşiktaş,Yenilen xG,9.7,12.0,10,Besiktas
+2026-11-06,T1,42167,Galatasaray,Yenilen xG,10.6,12.0,10,Galatasaray
+2026-11-06,T1,42167,Kasımpaşa,Yenilen xG,12.4,11.0,11,Kasimpasa
+2026-11-06,T1,42167,Fenerbahçe,Yenilen xG,12.8,10.0,10,Fenerbahce
+2026-11-06,T1,42167,Rizespor,Yenilen xG,13.0,15.0,10,Rizespor
+2026-11-06,T1,42167,Kocaelispor,Yenilen xG,13.4,9.0,10,Kocaelispor
+2026-11-06,T1,42167,Erzurumspor FK,Yenilen xG,13.6,15.0,10,Erzurumspor
+2026-11-06,T1,42167,Konyaspor,Yenilen xG,13.7,13.0,10,Konyaspor
+2026-11-06,T1,42167,Çorum FK,Yenilen xG,13.8,16.0,10,Corum
+2026-11-06,T1,42167,Trabzonspor,Yenilen xG,14.6,8.0,10,Trabzonspor
+2026-11-06,T1,42167,Başakşehir,Yenilen xG,16.0,16.0,10,Buyuksehyr
+2026-11-06,T1,42167,Göztepe,Yenilen xG,16.6,17.0,10,Goztep
+2026-11-06,T1,42167,Alanyaspor,Yenilen xG,16.9,16.0,10,Alanyaspor
+2026-11-06,T1,42167,Gaziantep FK,Yenilen xG,18.0,19.0,11,Gaziantep
+2026-11-06,T1,42167,Samsunspor,Yenilen xG,19.1,26.0,10,Samsunspor
+2026-11-06,T1,42167,Gençlerbirliği,Yenilen xG,20.0,18.0,10,Genclerbirligi
+2026-11-06,T1,42167,Eyüpspor,Yenilen xG,23.1,28.0,10,Eyupspor
+2026-11-06,T1,42167,Amed Sportif,xG Farkı,13.6,14.0,10,Amedspor
+2026-11-06,T1,42167,Galatasaray,xG Farkı,13.0,11.0,10,Galatasaray
+2026-11-06,T1,42167,Beşiktaş,xG Farkı,8.1,8.0,10,Besiktas
+2026-11-06,T1,42167,Fenerbahçe,xG Farkı,7.7,14.0,10,Fenerbahce
+2026-11-06,T1,42167,Trabzonspor,xG Farkı,4.5,16.0,10,Trabzonspor
+2026-11-06,T1,42167,Göztepe,xG Farkı,2.8,4.0,10,Goztep
+2026-11-06,T1,42167,Kasımpaşa,xG Farkı,1.2,6.0,11,Kasimpasa
+2026-11-06,T1,42167,Rizespor,xG Farkı,1.1,-4.0,10,Rizespor
+2026-11-06,T1,42167,Başakşehir,xG Farkı,1.0,1.0,10,Buyuksehyr
+2026-11-06,T1,42167,Çorum FK,xG Farkı,-0.8,5.0,10,Corum
+2026-11-06,T1,42167,Kocaelispor,xG Farkı,-1.6,2.0,10,Kocaelispor
+2026-11-06,T1,42167,Konyaspor,xG Farkı,-2.1,-7.0,10,Konyaspor
+2026-11-06,T1,42167,Erzurumspor FK,xG Farkı,-5.1,-6.0,10,Erzurumspor
+2026-11-06,T1,42167,Gaziantep FK,xG Farkı,-5.9,-10.0,11,Gaziantep
+2026-11-06,T1,42167,Alanyaspor,xG Farkı,-6.2,-7.0,10,Alanyaspor
+2026-11-06,T1,42167,Samsunspor,xG Farkı,-7.4,-16.0,10,Samsunspor
+2026-11-06,T1,42167,Gençlerbirliği,xG Farkı,-8.8,-6.0,10,Genclerbirligi
+2026-11-06,T1,42167,Eyüpspor,xG Farkı,-15.1,-25.0,10,Eyupspor
+2026-11-06,T1,42167,Fenerbahçe,Gol Yemeden,5.0,10.0,10,Fenerbahce
+2026-11-06,T1,42167,Trabzonspor,Gol Yemeden,5.0,10.0,10,Trabzonspor
+2026-11-06,T1,42167,Erzurumspor FK,Gol Yemeden,4.0,10.0,10,Erzurumspor
+2026-11-06,T1,42167,Galatasaray,Gol Yemeden,4.0,10.0,10,Galatasaray
+2026-11-06,T1,42167,Kocaelispor,Gol Yemeden,4.0,10.0,10,Kocaelispor
+2026-11-06,T1,42167,Konyaspor,Gol Yemeden,4.0,10.0,10,Konyaspor
+2026-11-06,T1,42167,Kasımpaşa,Gol Yemeden,4.0,11.0,11,Kasimpasa
+2026-11-06,T1,42167,Alanyaspor,Gol Yemeden,3.0,10.0,10,Alanyaspor
+2026-11-06,T1,42167,Amed Sportif,Gol Yemeden,3.0,10.0,10,Amedspor
+2026-11-06,T1,42167,Başakşehir,Gol Yemeden,3.0,10.0,10,Buyuksehyr
+2026-11-06,T1,42167,Beşiktaş,Gol Yemeden,3.0,10.0,10,Besiktas
+2026-11-06,T1,42167,Rizespor,Gol Yemeden,3.0,10.0,10,Rizespor
+2026-11-06,T1,42167,Çorum FK,Gol Yemeden,2.0,10.0,10,Corum
+2026-11-06,T1,42167,Gençlerbirliği,Gol Yemeden,2.0,10.0,10,Genclerbirligi
+2026-11-06,T1,42167,Göztepe,Gol Yemeden,2.0,10.0,10,Goztep
+2026-11-06,T1,42167,Gaziantep FK,Gol Yemeden,2.0,11.0,11,Gaziantep
+2026-11-06,T1,42167,Samsunspor,Gol Yemeden,1.0,10.0,10,Samsunspor
+2026-11-06,T1,42167,Galatasaray,İsabetli Şut,7.7,10.6,10,Galatasaray
+2026-11-06,T1,42167,Trabzonspor,İsabetli Şut,6.8,16.8,10,Trabzonspor
+2026-11-06,T1,42167,Fenerbahçe,İsabetli Şut,6.7,14.2,10,Fenerbahce
+2026-11-06,T1,42167,Beşiktaş,İsabetli Şut,6.1,12.0,10,Besiktas
+2026-11-06,T1,42167,Göztepe,İsabetli Şut,5.8,13.4,10,Goztep
+2026-11-06,T1,42167,Amed Sportif,İsabetli Şut,5.3,15.4,10,Amedspor
+2026-11-06,T1,42167,Çorum FK,İsabetli Şut,4.9,17.4,10,Corum
+2026-11-06,T1,42167,Rizespor,İsabetli Şut,4.9,7.1,10,Rizespor
+2026-11-06,T1,42167,Başakşehir,İsabetli Şut,4.6,12.9,10,Buyuksehyr
+2026-11-06,T1,42167,Kasımpaşa,İsabetli Şut,4.3,12.1,11,Kasimpasa
+2026-11-06,T1,42167,Kocaelispor,İsabetli Şut,4.3,8.5,10,Kocaelispor
+2026-11-06,T1,42167,Gençlerbirliği,İsabetli Şut,4.0,9.9,10,Genclerbirligi
+2026-11-06,T1,42167,Gaziantep FK,İsabetli Şut,3.9,5.9,11,Gaziantep
+2026-11-06,T1,42167,Alanyaspor,İsabetli Şut,3.5,8.0,10,Alanyaspor
+2026-11-06,T1,42167,Eyüpspor,İsabetli Şut,3.5,2.6,10,Eyupspor
+2026-11-06,T1,42167,Samsunspor,İsabetli Şut,3.3,7.5,10,Samsunspor
+2026-11-06,T1,42167,Konyaspor,İsabetli Şut,3.3,5.6,10,Konyaspor
+2026-11-06,T1,42167,Erzurumspor FK,İsabetli Şut,2.9,9.1,10,Erzurumspor
+2026-11-06,T1,42167,Trabzonspor,Büyük Fırsat,45.0,24.0,10,Trabzonspor
+2026-11-06,T1,42167,Fenerbahçe,Büyük Fırsat,41.0,24.0,10,Fenerbahce
+2026-11-06,T1,42167,Galatasaray,Büyük Fırsat,41.0,23.0,10,Galatasaray
+2026-11-06,T1,42167,Amed Sportif,Büyük Fırsat,33.0,25.0,10,Amedspor
+2026-11-06,T1,42167,Göztepe,Büyük Fırsat,32.0,21.0,10,Goztep
+2026-11-06,T1,42167,Beşiktaş,Büyük Fırsat,27.0,20.0,10,Besiktas
+2026-11-06,T1,42167,Başakşehir,Büyük Fırsat,26.0,17.0,10,Buyuksehyr
+2026-11-06,T1,42167,Çorum FK,Büyük Fırsat,25.0,21.0,10,Corum
+2026-11-06,T1,42167,Kasımpaşa,Büyük Fırsat,24.0,17.0,11,Kasimpasa
+2026-11-06,T1,42167,Rizespor,Büyük Fırsat,22.0,11.0,10,Rizespor
+2026-11-06,T1,42167,Kocaelispor,Büyük Fırsat,19.0,11.0,10,Kocaelispor
+2026-11-06,T1,42167,Gaziantep FK,Büyük Fırsat,19.0,9.0,11,Gaziantep
+2026-11-06,T1,42167,Konyaspor,Büyük Fırsat,19.0,6.0,10,Konyaspor
+2026-11-06,T1,42167,Gençlerbirliği,Büyük Fırsat,18.0,12.0,10,Genclerbirligi
+2026-11-06,T1,42167,Erzurumspor FK,Büyük Fırsat,18.0,9.0,10,Erzurumspor
+2026-11-06,T1,42167,Samsunspor,Büyük Fırsat,17.0,10.0,10,Samsunspor
+2026-11-06,T1,42167,Alanyaspor,Büyük Fırsat,14.0,9.0,10,Alanyaspor
+2026-11-06,T1,42167,Eyüpspor,Büyük Fırsat,12.0,3.0,10,Eyupspor
+2026-11-06,T1,42167,Galatasaray,Kaçan Büyük Fırsat,31.0,23.0,10,Galatasaray
+2026-11-06,T1,42167,Fenerbahçe,Kaçan Büyük Fırsat,28.0,24.0,10,Fenerbahce
+2026-11-06,T1,42167,Trabzonspor,Kaçan Büyük Fırsat,24.0,24.0,10,Trabzonspor
+2026-11-06,T1,42167,Amed Sportif,Kaçan Büyük Fırsat,17.0,25.0,10,Amedspor
+2026-11-06,T1,42167,Göztepe,Kaçan Büyük Fırsat,17.0,21.0,10,Goztep
+2026-11-06,T1,42167,Gaziantep FK,Kaçan Büyük Fırsat,16.0,9.0,11,Gaziantep
+2026-11-06,T1,42167,Konyaspor,Kaçan Büyük Fırsat,15.0,6.0,10,Konyaspor
+2026-11-06,T1,42167,Rizespor,Kaçan Büyük Fırsat,14.0,11.0,10,Rizespor
+2026-11-06,T1,42167,Beşiktaş,Kaçan Büyük Fırsat,13.0,20.0,10,Besiktas
+2026-11-06,T1,42167,Başakşehir,Kaçan Büyük Fırsat,13.0,17.0,10,Buyuksehyr
+2026-11-06,T1,42167,Kasımpaşa,Kaçan Büyük Fırsat,13.0,17.0,11,Kasimpasa
+2026-11-06,T1,42167,Kocaelispor,Kaçan Büyük Fırsat,13.0,11.0,10,Kocaelispor
+2026-11-06,T1,42167,Gençlerbirliği,Kaçan Büyük Fırsat,12.0,12.0,10,Genclerbirligi
+2026-11-06,T1,42167,Samsunspor,Kaçan Büyük Fırsat,12.0,10.0,10,Samsunspor
+2026-11-06,T1,42167,Erzurumspor FK,Kaçan Büyük Fırsat,11.0,9.0,10,Erzurumspor
+2026-11-06,T1,42167,Çorum FK,Kaçan Büyük Fırsat,10.0,21.0,10,Corum
+2026-11-06,T1,42167,Eyüpspor,Kaçan Büyük Fırsat,10.0,3.0,10,Eyupspor
+2026-11-06,T1,42167,Alanyaspor,Kaçan Büyük Fırsat,9.0,9.0,10,Alanyaspor
+2026-11-06,T1,42167,Galatasaray,Ceza Sahası Dokunuş,359.0,0.0,10,Galatasaray
+2026-11-06,T1,42167,Beşiktaş,Ceza Sahası Dokunuş,317.0,0.0,10,Besiktas
+2026-11-06,T1,42167,Fenerbahçe,Ceza Sahası Dokunuş,298.0,0.0,10,Fenerbahce
+2026-11-06,T1,42167,Göztepe,Ceza Sahası Dokunuş,284.0,0.0,10,Goztep
+2026-11-06,T1,42167,Trabzonspor,Ceza Sahası Dokunuş,235.0,0.0,10,Trabzonspor
+2026-11-06,T1,42167,Rizespor,Ceza Sahası Dokunuş,217.0,0.0,10,Rizespor
+2026-11-06,T1,42167,Gaziantep FK,Ceza Sahası Dokunuş,210.0,0.0,11,Gaziantep
+2026-11-06,T1,42167,Amed Sportif,Ceza Sahası Dokunuş,208.0,0.0,10,Amedspor
+2026-11-06,T1,42167,Samsunspor,Ceza Sahası Dokunuş,201.0,0.0,10,Samsunspor
+2026-11-06,T1,42167,Çorum FK,Ceza Sahası Dokunuş,198.0,0.0,10,Corum
+2026-11-06,T1,42167,Başakşehir,Ceza Sahası Dokunuş,185.0,0.0,10,Buyuksehyr
+2026-11-06,T1,42167,Kasımpaşa,Ceza Sahası Dokunuş,181.0,0.0,11,Kasimpasa
+2026-11-06,T1,42167,Gençlerbirliği,Ceza Sahası Dokunuş,175.0,0.0,10,Genclerbirligi
+2026-11-06,T1,42167,Erzurumspor FK,Ceza Sahası Dokunuş,173.0,0.0,10,Erzurumspor
+2026-11-06,T1,42167,Konyaspor,Ceza Sahası Dokunuş,173.0,0.0,10,Konyaspor
+2026-11-06,T1,42167,Kocaelispor,Ceza Sahası Dokunuş,172.0,0.0,10,Kocaelispor
+2026-11-06,T1,42167,Alanyaspor,Ceza Sahası Dokunuş,154.0,0.0,10,Alanyaspor
+2026-11-06,T1,42167,Eyüpspor,Ceza Sahası Dokunuş,149.0,0.0,10,Eyupspor
+2026-11-06,T1,42167,Galatasaray,Korner,79.0,0.0,10,Galatasaray
+2026-11-06,T1,42167,Beşiktaş,Korner,67.0,0.0,10,Besiktas
+2026-11-06,T1,42167,Fenerbahçe,Korner,59.0,0.0,10,Fenerbahce
+2026-11-06,T1,42167,Amed Sportif,Korner,51.0,0.0,10,Amedspor
+2026-11-06,T1,42167,Trabzonspor,Korner,51.0,0.0,10,Trabzonspor
+2026-11-06,T1,42167,Gaziantep FK,Korner,49.0,0.0,11,Gaziantep
+2026-11-06,T1,42167,Göztepe,Korner,49.0,0.0,10,Goztep
+2026-11-06,T1,42167,Alanyaspor,Korner,48.0,0.0,10,Alanyaspor
+2026-11-06,T1,42167,Gençlerbirliği,Korner,48.0,0.0,10,Genclerbirligi
+2026-11-06,T1,42167,Rizespor,Korner,48.0,0.0,10,Rizespor
+2026-11-06,T1,42167,Başakşehir,Korner,45.0,0.0,10,Buyuksehyr
+2026-11-06,T1,42167,Kasımpaşa,Korner,45.0,0.0,11,Kasimpasa
+2026-11-06,T1,42167,Kocaelispor,Korner,43.0,0.0,10,Kocaelispor
+2026-11-06,T1,42167,Samsunspor,Korner,42.0,0.0,10,Samsunspor
+2026-11-06,T1,42167,Çorum FK,Korner,37.0,0.0,10,Corum
+2026-11-06,T1,42167,Eyüpspor,Korner,37.0,0.0,10,Eyupspor
+2026-11-06,T1,42167,Erzurumspor FK,Korner,35.0,0.0,10,Erzurumspor
+2026-11-06,T1,42167,Konyaspor,Korner,32.0,0.0,10,Konyaspor
+2026-11-06,T1,42167,Galatasaray,Duran Top Gol,8.0,6.5,10,Galatasaray
+2026-11-06,T1,42167,Göztepe,Duran Top Gol,6.0,3.8,10,Goztep
+2026-11-06,T1,42167,Amed Sportif,Duran Top Gol,5.0,4.5,10,Amedspor
+2026-11-06,T1,42167,Fenerbahçe,Duran Top Gol,5.0,4.1,10,Fenerbahce
+2026-11-06,T1,42167,Kasımpaşa,Duran Top Gol,5.0,3.6,11,Kasimpasa
+2026-11-06,T1,42167,Çorum FK,Duran Top Gol,4.0,1.0,10,Corum
+2026-11-06,T1,42167,Başakşehir,Duran Top Gol,3.0,4.0,10,Buyuksehyr
+2026-11-06,T1,42167,Beşiktaş,Duran Top Gol,3.0,3.0,10,Besiktas
+2026-11-06,T1,42167,Gençlerbirliği,Duran Top Gol,3.0,2.9,10,Genclerbirligi
+2026-11-06,T1,42167,Kocaelispor,Duran Top Gol,3.0,2.6,10,Kocaelispor
+2026-11-06,T1,42167,Alanyaspor,Duran Top Gol,2.0,2.6,10,Alanyaspor
+2026-11-06,T1,42167,Konyaspor,Duran Top Gol,2.0,2.9,10,Konyaspor
+2026-11-06,T1,42167,Trabzonspor,Duran Top Gol,2.0,3.2,10,Trabzonspor
+2026-11-06,T1,42167,Gaziantep FK,Duran Top Gol,2.0,2.4,11,Gaziantep
+2026-11-06,T1,42167,Erzurumspor FK,Duran Top Gol,1.0,1.7,10,Erzurumspor
+2026-11-06,T1,42167,Eyüpspor,Duran Top Gol,1.0,3.2,10,Eyupspor
+2026-11-06,T1,42167,Samsunspor,Duran Top Gol,1.0,2.0,10,Samsunspor
+2026-11-06,T1,42167,Rizespor,Duran Top Gol,0.0,2.6,10,Rizespor
+2026-11-06,T1,42167,Kocaelispor,Duran Top Yenilen,0.0,1.9,10,Kocaelispor
+2026-11-06,T1,42167,Rizespor,Duran Top Yenilen,1.0,1.9,10,Rizespor
+2026-11-06,T1,42167,Gaziantep FK,Duran Top Yenilen,2.0,1.5,11,Gaziantep
+2026-11-06,T1,42167,Kasımpaşa,Duran Top Yenilen,2.0,2.8,11,Kasimpasa
+2026-11-06,T1,42167,Eyüpspor,Duran Top Yenilen,2.0,1.8,10,Eyupspor
+2026-11-06,T1,42167,Fenerbahçe,Duran Top Yenilen,2.0,1.5,10,Fenerbahce
+2026-11-06,T1,42167,Trabzonspor,Duran Top Yenilen,2.0,2.1,10,Trabzonspor
+2026-11-06,T1,42167,Başakşehir,Duran Top Yenilen,3.0,1.8,10,Buyuksehyr
+2026-11-06,T1,42167,Beşiktaş,Duran Top Yenilen,3.0,0.9,10,Besiktas
+2026-11-06,T1,42167,Çorum FK,Duran Top Yenilen,3.0,3.0,10,Corum
+2026-11-06,T1,42167,Galatasaray,Duran Top Yenilen,3.0,1.7,10,Galatasaray
+2026-11-06,T1,42167,Gençlerbirliği,Duran Top Yenilen,3.0,3.9,10,Genclerbirligi
+2026-11-06,T1,42167,Alanyaspor,Duran Top Yenilen,4.0,3.8,10,Alanyaspor
+2026-11-06,T1,42167,Erzurumspor FK,Duran Top Yenilen,4.0,2.4,10,Erzurumspor
+2026-11-06,T1,42167,Göztepe,Duran Top Yenilen,4.0,2.5,10,Goztep
+2026-11-06,T1,42167,Konyaspor,Duran Top Yenilen,4.0,2.1,10,Konyaspor
+2026-11-06,T1,42167,Amed Sportif,Duran Top Yenilen,5.0,2.2,10,Amedspor
+2026-11-06,T1,42167,Samsunspor,Duran Top Yenilen,9.0,4.7,10,Samsunspor
+2026-11-06,T1,42167,Göztepe,Kazanılan Penaltı,7.0,71.4,10,Goztep
+2026-11-06,T1,42167,Amed Sportif,Kazanılan Penaltı,4.0,75.0,10,Amedspor
+2026-11-06,T1,42167,Başakşehir,Kazanılan Penaltı,3.0,100.0,10,Buyuksehyr
+2026-11-06,T1,42167,Beşiktaş,Kazanılan Penaltı,3.0,100.0,10,Besiktas
+2026-11-06,T1,42167,Fenerbahçe,Kazanılan Penaltı,3.0,33.3,10,Fenerbahce
+2026-11-06,T1,42167,Galatasaray,Kazanılan Penaltı,2.0,100.0,10,Galatasaray
+2026-11-06,T1,42167,Kasımpaşa,Kazanılan Penaltı,2.0,100.0,11,Kasimpasa
+2026-11-06,T1,42167,Samsunspor,Kazanılan Penaltı,2.0,50.0,10,Samsunspor
+2026-11-06,T1,42167,Çorum FK,Kazanılan Penaltı,1.0,100.0,10,Corum
+2026-11-06,T1,42167,Kocaelispor,Kazanılan Penaltı,1.0,100.0,10,Kocaelispor
+2026-11-06,T1,42167,Rizespor,Kazanılan Penaltı,1.0,100.0,10,Rizespor
+2026-11-06,T1,42167,Trabzonspor,Kazanılan Penaltı,1.0,100.0,10,Trabzonspor
+2026-11-06,T1,42167,Gençlerbirliği,Kazanılan Penaltı,1.0,0.0,10,Genclerbirligi
+2026-11-06,T1,42167,Eyüpspor,Yapılan Penaltı,4.0,4.0,10,Eyupspor
+2026-11-06,T1,42167,Gençlerbirliği,Yapılan Penaltı,4.0,3.0,10,Genclerbirligi
+2026-11-06,T1,42167,Göztepe,Yapılan Penaltı,4.0,3.0,10,Goztep
+2026-11-06,T1,42167,Konyaspor,Yapılan Penaltı,4.0,2.0,10,Konyaspor
+2026-11-06,T1,42167,Gaziantep FK,Yapılan Penaltı,3.0,2.0,11,Gaziantep
+2026-11-06,T1,42167,Trabzonspor,Yapılan Penaltı,3.0,2.0,10,Trabzonspor
+2026-11-06,T1,42167,Alanyaspor,Yapılan Penaltı,2.0,1.0,10,Alanyaspor
+2026-11-06,T1,42167,Amed Sportif,Yapılan Penaltı,1.0,1.0,10,Amedspor
+2026-11-06,T1,42167,Çorum FK,Yapılan Penaltı,1.0,1.0,10,Corum
+2026-11-06,T1,42167,Erzurumspor FK,Yapılan Penaltı,1.0,1.0,10,Erzurumspor
+2026-11-06,T1,42167,Galatasaray,Yapılan Penaltı,1.0,1.0,10,Galatasaray
+2026-11-06,T1,42167,Kocaelispor,Yapılan Penaltı,1.0,1.0,10,Kocaelispor
+2026-11-06,T1,42167,Rizespor,Yapılan Penaltı,1.0,1.0,10,Rizespor
+2026-11-06,T1,42167,Samsunspor,Yapılan Penaltı,1.0,1.0,10,Samsunspor
+2026-11-06,T1,42167,Beşiktaş,Topa Sahip Olma %,62.0,20.0,10,Besiktas
+2026-11-06,T1,42167,Galatasaray,Topa Sahip Olma %,59.7,23.0,10,Galatasaray
+2026-11-06,T1,42167,Fenerbahçe,Topa Sahip Olma %,54.7,24.0,10,Fenerbahce
+2026-11-06,T1,42167,Samsunspor,Topa Sahip Olma %,53.7,10.0,10,Samsunspor
+2026-11-06,T1,42167,Çorum FK,Topa Sahip Olma %,53.3,21.0,10,Corum
+2026-11-06,T1,42167,Rizespor,Topa Sahip Olma %,53.3,11.0,10,Rizespor
+2026-11-06,T1,42167,Trabzonspor,Topa Sahip Olma %,53.1,24.0,10,Trabzonspor
+2026-11-06,T1,42167,Gaziantep FK,Topa Sahip Olma %,51.3,9.0,11,Gaziantep
+2026-11-06,T1,42167,Başakşehir,Topa Sahip Olma %,50.9,17.0,10,Buyuksehyr
+2026-11-06,T1,42167,Eyüpspor,Topa Sahip Olma %,49.6,3.0,10,Eyupspor
+2026-11-06,T1,42167,Kocaelispor,Topa Sahip Olma %,48.7,11.0,10,Kocaelispor
+2026-11-06,T1,42167,Konyaspor,Topa Sahip Olma %,48.7,6.0,10,Konyaspor
+2026-11-06,T1,42167,Amed Sportif,Topa Sahip Olma %,48.4,25.0,10,Amedspor
+2026-11-06,T1,42167,Alanyaspor,Topa Sahip Olma %,45.2,9.0,10,Alanyaspor
+2026-11-06,T1,42167,Erzurumspor FK,Topa Sahip Olma %,43.3,9.0,10,Erzurumspor
+2026-11-06,T1,42167,Gençlerbirliği,Topa Sahip Olma %,43.2,12.0,10,Genclerbirligi
+2026-11-06,T1,42167,Kasımpaşa,Topa Sahip Olma %,42.3,17.0,11,Kasimpasa
+2026-11-06,T1,42167,Göztepe,Topa Sahip Olma %,39.4,21.0,10,Goztep
+2026-11-06,T1,42167,Beşiktaş,Başarılı Pas,445.7,86.7,10,Besiktas
+2026-11-06,T1,42167,Galatasaray,Başarılı Pas,411.0,86.9,10,Galatasaray
+2026-11-06,T1,42167,Çorum FK,Başarılı Pas,410.4,85.3,10,Corum
+2026-11-06,T1,42167,Fenerbahçe,Başarılı Pas,406.4,86.0,10,Fenerbahce
+2026-11-06,T1,42167,Samsunspor,Başarılı Pas,404.4,84.0,10,Samsunspor
+2026-11-06,T1,42167,Trabzonspor,Başarılı Pas,388.3,85.3,10,Trabzonspor
+2026-11-06,T1,42167,Başakşehir,Başarılı Pas,378.0,84.1,10,Buyuksehyr
+2026-11-06,T1,42167,Gaziantep FK,Başarılı Pas,374.6,83.7,11,Gaziantep
+2026-11-06,T1,42167,Rizespor,Başarılı Pas,368.1,84.4,10,Rizespor
+2026-11-06,T1,42167,Eyüpspor,Başarılı Pas,344.9,84.6,10,Eyupspor
+2026-11-06,T1,42167,Amed Sportif,Başarılı Pas,340.3,82.8,10,Amedspor
+2026-11-06,T1,42167,Erzurumspor FK,Başarılı Pas,335.5,83.4,10,Erzurumspor
+2026-11-06,T1,42167,Kocaelispor,Başarılı Pas,330.1,79.8,10,Kocaelispor
+2026-11-06,T1,42167,Konyaspor,Başarılı Pas,324.4,82.1,10,Konyaspor
+2026-11-06,T1,42167,Alanyaspor,Başarılı Pas,300.6,81.0,10,Alanyaspor
+2026-11-06,T1,42167,Kasımpaşa,Başarılı Pas,275.4,77.9,11,Kasimpasa
+2026-11-06,T1,42167,Gençlerbirliği,Başarılı Pas,262.3,78.6,10,Genclerbirligi
+2026-11-06,T1,42167,Göztepe,Başarılı Pas,198.7,70.1,10,Goztep
+2026-11-06,T1,42167,Göztepe,İsabetli Kros,6.4,31.2,10,Goztep
+2026-11-06,T1,42167,Galatasaray,İsabetli Kros,6.4,27.0,10,Galatasaray
+2026-11-06,T1,42167,Rizespor,İsabetli Kros,5.9,29.6,10,Rizespor
+2026-11-06,T1,42167,Samsunspor,İsabetli Kros,5.0,28.9,10,Samsunspor
+2026-11-06,T1,42167,Gaziantep FK,İsabetli Kros,4.9,25.6,11,Gaziantep
+2026-11-06,T1,42167,Fenerbahçe,İsabetli Kros,4.8,25.1,10,Fenerbahce
+2026-11-06,T1,42167,Konyaspor,İsabetli Kros,4.4,28.9,10,Konyaspor
+2026-11-06,T1,42167,Erzurumspor FK,İsabetli Kros,4.4,25.6,10,Erzurumspor
+2026-11-06,T1,42167,Alanyaspor,İsabetli Kros,4.2,25.0,10,Alanyaspor
+2026-11-06,T1,42167,Başakşehir,İsabetli Kros,4.2,23.9,10,Buyuksehyr
+2026-11-06,T1,42167,Trabzonspor,İsabetli Kros,4.1,26.1,10,Trabzonspor
+2026-11-06,T1,42167,Beşiktaş,İsabetli Kros,3.8,19.1,10,Besiktas
+2026-11-06,T1,42167,Kocaelispor,İsabetli Kros,3.7,22.3,10,Kocaelispor
+2026-11-06,T1,42167,Eyüpspor,İsabetli Kros,3.7,21.5,10,Eyupspor
+2026-11-06,T1,42167,Gençlerbirliği,İsabetli Kros,3.2,20.8,10,Genclerbirligi
+2026-11-06,T1,42167,Çorum FK,İsabetli Kros,3.1,19.9,10,Corum
+2026-11-06,T1,42167,Amed Sportif,İsabetli Kros,2.6,18.4,10,Amedspor
+2026-11-06,T1,42167,Kasımpaşa,İsabetli Kros,2.5,21.3,11,Kasimpasa
+2026-11-06,T1,42167,Göztepe,Top Kapma,11.6,116.0,10,Goztep
+2026-11-06,T1,42167,Gaziantep FK,Top Kapma,10.9,120.0,11,Gaziantep
+2026-11-06,T1,42167,Rizespor,Top Kapma,10.2,102.0,10,Rizespor
+2026-11-06,T1,42167,Trabzonspor,Top Kapma,10.0,100.0,10,Trabzonspor
+2026-11-06,T1,42167,Samsunspor,Top Kapma,9.9,99.0,10,Samsunspor
+2026-11-06,T1,42167,Kocaelispor,Top Kapma,9.7,97.0,10,Kocaelispor
+2026-11-06,T1,42167,Erzurumspor FK,Top Kapma,8.9,89.0,10,Erzurumspor
+2026-11-06,T1,42167,Beşiktaş,Top Kapma,8.7,87.0,10,Besiktas
+2026-11-06,T1,42167,Alanyaspor,Top Kapma,8.6,86.0,10,Alanyaspor
+2026-11-06,T1,42167,Kasımpaşa,Top Kapma,8.4,92.0,11,Kasimpasa
+2026-11-06,T1,42167,Eyüpspor,Top Kapma,8.4,84.0,10,Eyupspor
+2026-11-06,T1,42167,Galatasaray,Top Kapma,8.0,80.0,10,Galatasaray
+2026-11-06,T1,42167,Konyaspor,Top Kapma,8.0,80.0,10,Konyaspor
+2026-11-06,T1,42167,Gençlerbirliği,Top Kapma,7.7,77.0,10,Genclerbirligi
+2026-11-06,T1,42167,Başakşehir,Top Kapma,7.3,73.0,10,Buyuksehyr
+2026-11-06,T1,42167,Çorum FK,Top Kapma,7.2,72.0,10,Corum
+2026-11-06,T1,42167,Fenerbahçe,Top Kapma,7.1,71.0,10,Fenerbahce
+2026-11-06,T1,42167,Amed Sportif,Top Kapma,6.9,69.0,10,Amedspor
+2026-11-06,T1,42167,Kocaelispor,Top Çalma,17.2,172.0,10,Kocaelispor
+2026-11-06,T1,42167,Amed Sportif,Top Çalma,17.1,171.0,10,Amedspor
+2026-11-06,T1,42167,Rizespor,Top Çalma,16.8,168.0,10,Rizespor
+2026-11-06,T1,42167,Kasımpaşa,Top Çalma,16.5,182.0,11,Kasimpasa
+2026-11-06,T1,42167,Fenerbahçe,Top Çalma,16.3,163.0,10,Fenerbahce
+2026-11-06,T1,42167,Trabzonspor,Top Çalma,15.5,155.0,10,Trabzonspor
+2026-11-06,T1,42167,Çorum FK,Top Çalma,15.4,154.0,10,Corum
+2026-11-06,T1,42167,Erzurumspor FK,Top Çalma,15.3,153.0,10,Erzurumspor
+2026-11-06,T1,42167,Gaziantep FK,Top Çalma,14.4,158.0,11,Gaziantep
+2026-11-06,T1,42167,Göztepe,Top Çalma,14.2,142.0,10,Goztep
+2026-11-06,T1,42167,Gençlerbirliği,Top Çalma,13.9,139.0,10,Genclerbirligi
+2026-11-06,T1,42167,Beşiktaş,Top Çalma,13.2,132.0,10,Besiktas
+2026-11-06,T1,42167,Samsunspor,Top Çalma,12.9,129.0,10,Samsunspor
+2026-11-06,T1,42167,Konyaspor,Top Çalma,12.8,128.0,10,Konyaspor
+2026-11-06,T1,42167,Galatasaray,Top Çalma,12.3,123.0,10,Galatasaray
+2026-11-06,T1,42167,Alanyaspor,Top Çalma,11.2,112.0,10,Alanyaspor
+2026-11-06,T1,42167,Başakşehir,Top Çalma,9.7,97.0,10,Buyuksehyr
+2026-11-06,T1,42167,Eyüpspor,Top Çalma,9.7,97.0,10,Eyupspor
+2026-11-06,T1,42167,Göztepe,Rakip Alanda Top Kazanma,5.2,198.0,10,Goztep
+2026-11-06,T1,42167,Galatasaray,Rakip Alanda Top Kazanma,4.6,201.0,10,Galatasaray
+2026-11-06,T1,42167,Beşiktaş,Rakip Alanda Top Kazanma,3.8,234.0,10,Besiktas
+2026-11-06,T1,42167,Fenerbahçe,Rakip Alanda Top Kazanma,3.6,174.0,10,Fenerbahce
+2026-11-06,T1,42167,Başakşehir,Rakip Alanda Top Kazanma,3.5,152.0,10,Buyuksehyr
+2026-11-06,T1,42167,Rizespor,Rakip Alanda Top Kazanma,3.4,223.0,10,Rizespor
+2026-11-06,T1,42167,Kasımpaşa,Rakip Alanda Top Kazanma,3.3,218.0,11,Kasimpasa
+2026-11-06,T1,42167,Samsunspor,Rakip Alanda Top Kazanma,3.2,211.0,10,Samsunspor
+2026-11-06,T1,42167,Trabzonspor,Rakip Alanda Top Kazanma,3.2,183.0,10,Trabzonspor
+2026-11-06,T1,42167,Amed Sportif,Rakip Alanda Top Kazanma,3.1,193.0,10,Amedspor
+2026-11-06,T1,42167,Çorum FK,Rakip Alanda Top Kazanma,3.1,184.0,10,Corum
+2026-11-06,T1,42167,Erzurumspor FK,Rakip Alanda Top Kazanma,3.1,146.0,10,Erzurumspor
+2026-11-06,T1,42167,Gaziantep FK,Rakip Alanda Top Kazanma,3.0,220.0,11,Gaziantep
+2026-11-06,T1,42167,Eyüpspor,Rakip Alanda Top Kazanma,3.0,155.0,10,Eyupspor
+2026-11-06,T1,42167,Gençlerbirliği,Rakip Alanda Top Kazanma,2.9,180.0,10,Genclerbirligi
+2026-11-06,T1,42167,Kocaelispor,Rakip Alanda Top Kazanma,2.6,200.0,10,Kocaelispor
+2026-11-06,T1,42167,Konyaspor,Rakip Alanda Top Kazanma,2.1,167.0,10,Konyaspor
+2026-11-06,T1,42167,Alanyaspor,Rakip Alanda Top Kazanma,1.5,164.0,10,Alanyaspor
+2026-11-06,T1,42167,Gençlerbirliği,Kurtarış,4.9,49.0,10,Genclerbirligi
+2026-11-06,T1,42167,Trabzonspor,Kurtarış,4.5,45.0,10,Trabzonspor
+2026-11-06,T1,42167,Samsunspor,Kurtarış,4.2,42.0,10,Samsunspor
+2026-11-06,T1,42167,Alanyaspor,Kurtarış,3.8,38.0,10,Alanyaspor
+2026-11-06,T1,42167,Fenerbahçe,Kurtarış,3.6,36.0,10,Fenerbahce
+2026-11-06,T1,42167,Kasımpaşa,Kurtarış,3.5,39.0,11,Kasimpasa
+2026-11-06,T1,42167,Çorum FK,Kurtarış,3.4,34.0,10,Corum
+2026-11-06,T1,42167,Konyaspor,Kurtarış,3.4,34.0,10,Konyaspor
+2026-11-06,T1,42167,Rizespor,Kurtarış,3.3,33.0,10,Rizespor
+2026-11-06,T1,42167,Göztepe,Kurtarış,3.2,32.0,10,Goztep
+2026-11-06,T1,42167,Kocaelispor,Kurtarış,3.2,32.0,10,Kocaelispor
+2026-11-06,T1,42167,Başakşehir,Kurtarış,3.0,30.0,10,Buyuksehyr
+2026-11-06,T1,42167,Beşiktaş,Kurtarış,2.9,29.0,10,Besiktas
+2026-11-06,T1,42167,Erzurumspor FK,Kurtarış,2.8,28.0,10,Erzurumspor
+2026-11-06,T1,42167,Eyüpspor,Kurtarış,2.8,28.0,10,Eyupspor
+2026-11-06,T1,42167,Gaziantep FK,Kurtarış,2.5,28.0,11,Gaziantep
+2026-11-06,T1,42167,Amed Sportif,Kurtarış,2.3,23.0,10,Amedspor
+2026-11-06,T1,42167,Galatasaray,Kurtarış,2.1,21.0,10,Galatasaray
+2026-11-06,T1,42167,Göztepe,Faul,16.5,25.0,10,Goztep
+2026-11-06,T1,42167,Kasımpaşa,Faul,15.7,27.0,11,Kasimpasa
+2026-11-06,T1,42167,Amed Sportif,Faul,15.0,26.0,10,Amedspor
+2026-11-06,T1,42167,Başakşehir,Faul,14.5,21.0,10,Buyuksehyr
+2026-11-06,T1,42167,Samsunspor,Faul,14.3,13.0,10,Samsunspor
+2026-11-06,T1,42167,Çorum FK,Faul,13.7,20.0,10,Corum
+2026-11-06,T1,42167,Beşiktaş,Faul,13.4,23.0,10,Besiktas
+2026-11-06,T1,42167,Gençlerbirliği,Faul,13.3,18.0,10,Genclerbirligi
+2026-11-06,T1,42167,Alanyaspor,Faul,12.9,16.0,10,Alanyaspor
+2026-11-06,T1,42167,Fenerbahçe,Faul,12.7,19.0,10,Fenerbahce
+2026-11-06,T1,42167,Kocaelispor,Faul,12.5,20.0,10,Kocaelispor
+2026-11-06,T1,42167,Konyaspor,Faul,12.3,22.0,10,Konyaspor
+2026-11-06,T1,42167,Erzurumspor FK,Faul,12.3,12.0,10,Erzurumspor
+2026-11-06,T1,42167,Gaziantep FK,Faul,12.0,23.0,11,Gaziantep
+2026-11-06,T1,42167,Galatasaray,Faul,11.7,17.0,10,Galatasaray
+2026-11-06,T1,42167,Rizespor,Faul,11.4,20.0,10,Rizespor
+2026-11-06,T1,42167,Trabzonspor,Faul,10.6,19.0,10,Trabzonspor
+2026-11-06,T1,42167,Eyüpspor,Faul,10.4,11.0,10,Eyupspor
+2026-11-06,T1,42167,Kasımpaşa,Sarı Kart,27.0,0.0,11,Kasimpasa
+2026-11-06,T1,42167,Amed Sportif,Sarı Kart,26.0,3.0,10,Amedspor
+2026-11-06,T1,42167,Göztepe,Sarı Kart,25.0,1.0,10,Goztep
+2026-11-06,T1,42167,Gaziantep FK,Sarı Kart,23.0,1.0,11,Gaziantep
+2026-11-06,T1,42167,Beşiktaş,Sarı Kart,23.0,0.0,10,Besiktas
+2026-11-06,T1,42167,Konyaspor,Sarı Kart,22.0,1.0,10,Konyaspor
+2026-11-06,T1,42167,Başakşehir,Sarı Kart,21.0,1.0,10,Buyuksehyr
+2026-11-06,T1,42167,Çorum FK,Sarı Kart,20.0,1.0,10,Corum
+2026-11-06,T1,42167,Rizespor,Sarı Kart,20.0,1.0,10,Rizespor
+2026-11-06,T1,42167,Kocaelispor,Sarı Kart,20.0,0.0,10,Kocaelispor
+2026-11-06,T1,42167,Fenerbahçe,Sarı Kart,19.0,1.0,10,Fenerbahce
+2026-11-06,T1,42167,Trabzonspor,Sarı Kart,19.0,1.0,10,Trabzonspor
+2026-11-06,T1,42167,Gençlerbirliği,Sarı Kart,18.0,0.0,10,Genclerbirligi
+2026-11-06,T1,42167,Galatasaray,Sarı Kart,17.0,3.0,10,Galatasaray
+2026-11-06,T1,42167,Alanyaspor,Sarı Kart,16.0,0.0,10,Alanyaspor
+2026-11-06,T1,42167,Samsunspor,Sarı Kart,13.0,1.0,10,Samsunspor
+2026-11-06,T1,42167,Erzurumspor FK,Sarı Kart,12.0,0.0,10,Erzurumspor
+2026-11-06,T1,42167,Eyüpspor,Sarı Kart,11.0,2.0,10,Eyupspor
+2026-11-06,T1,42167,Amed Sportif,Kırmızı Kart,3.0,26.0,10,Amedspor
+2026-11-06,T1,42167,Galatasaray,Kırmızı Kart,3.0,17.0,10,Galatasaray
+2026-11-06,T1,42167,Eyüpspor,Kırmızı Kart,2.0,11.0,10,Eyupspor
+2026-11-06,T1,42167,Göztepe,Kırmızı Kart,1.0,25.0,10,Goztep
+2026-11-06,T1,42167,Gaziantep FK,Kırmızı Kart,1.0,23.0,11,Gaziantep
+2026-11-06,T1,42167,Konyaspor,Kırmızı Kart,1.0,22.0,10,Konyaspor
+2026-11-06,T1,42167,Başakşehir,Kırmızı Kart,1.0,21.0,10,Buyuksehyr
+2026-11-06,T1,42167,Çorum FK,Kırmızı Kart,1.0,20.0,10,Corum
+2026-11-06,T1,42167,Rizespor,Kırmızı Kart,1.0,20.0,10,Rizespor
+2026-11-06,T1,42167,Fenerbahçe,Kırmızı Kart,1.0,19.0,10,Fenerbahce
+2026-11-06,T1,42167,Trabzonspor,Kırmızı Kart,1.0,19.0,10,Trabzonspor
+2026-11-06,T1,42167,Samsunspor,Kırmızı Kart,1.0,13.0,10,Samsunspor

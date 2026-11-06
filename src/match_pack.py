@@ -137,6 +137,28 @@ def value_tilt(model, vh, va):
             "not": "DENEYSEL: takım değeri oranı (beta=0.098); kanıt zayıf"}
 
 
+def fotmob_note(div, team):
+    """En güncel FotMob anlık görüntüsünden takımın xG özeti (olasılığa KATILMAZ, sadece risk notu)."""
+    p = ROOT / "data" / "fotmob" / "history.csv"
+    if not p.exists():
+        return None
+    h = pd.read_csv(p)
+    h = h[(h["div"] == div) & (h.fd_name == team)]
+    if h.empty:
+        return None
+    h = h[h.date == h.date.max()]
+    v = h.set_index("stat")
+    try:
+        n = float(v.matches.iloc[0])
+        xg, xga = float(v.loc["xG", "value"]), float(v.loc["Yenilen xG", "value"])
+        gol, yenen = float(v.loc["xG", "sub_value"]), float(v.loc["Yenilen xG", "sub_value"])
+    except Exception:  # noqa: BLE001
+        return None
+    return {"tarih": h.date.max(), "maç": int(n), "xG/maç": round(xg / n, 2), "yenilen xG/maç": round(xga / n, 2),
+            "xG farkı/maç": round((xg - xga) / n, 2), "şans: attığı gol - xG": round(gol - xg, 1),
+            "şans: xGA - yediği gol": round(xga - yenen, 1)}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("matches")
@@ -183,6 +205,9 @@ def main():
                                       for t in (m["home"], m["away"])},
                  "son5yıl": {t: record(h, t, now) for t in (m["home"], m["away"])},
                  "karşılıklı_son5yıl": h2h(h, m["home"], m["away"], now)}
+        fm = {t: fotmob_note(div, t) for t in (m["home"], m["away"])}
+        if all(fm.values()):
+            entry["fotmob_xg_notu"] = fm
         o = fixtures[(fixtures.home == m["home"]) & (fixtures.away == m["away"])] if fixtures is not None else []
         if len(o) and pd.notna(o.iloc[0].oH):
             r = o.iloc[0]

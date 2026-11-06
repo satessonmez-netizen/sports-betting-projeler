@@ -48,3 +48,12 @@ python ledger.py report     # sayılarla rapor
 python ledger.py errors     # yanıldığım maçlar
 ```
 Ayrıntılar `src/ledger.py` başındaki açıklamada.
+
+## FotMob xG anlık görüntüsü (haftada 1)
+```bash
+cd src
+python fotmob_stats.py                      # leagues.csv'deki aktif ligler (şimdilik Süper Lig)
+python fotmob_stats.py --add-url "<FotMob istatistik sayfası adresi>" --div SP1 --name "La Liga"   # yeni lig ekle
+```
+Her çalıştırma `data/fotmob/snapshots/<lig>_<tarih>.csv` yazar ve `data/fotmob/history.csv`'ye ekler (aynı gün tekrar
+çalıştırınca çoğalmaz). `match_pack.py` bu geçmişten "fotmob_xg_notu" üretir (olasılığa katılmaz, risk notu).

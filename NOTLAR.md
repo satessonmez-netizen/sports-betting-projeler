@@ -48,6 +48,13 @@ Adaylar: **FootyStats** ve **API-Football**. Henüz hiçbiri alınmadı. Fiyat/p
   Hangisi eksikse o kaynak alınır. İki bilgi de şu an KANITSIZ (xG tek sezon testte gollerden iyi çıkmadı, eksik oyuncu değeri iyileştirmedi).
 - Ücretsiz alternatif (elle, olasılığa katmadan risk notu): FotMob ve Statz.ai takım xG sayfaları.
 
+### FotMob xG hattı (kuruldu, 2026-11-06)
+- `src/fotmob_stats.py`: tarihli anlık görüntü + `data/fotmob/history.csv` (uzun biçim). Süper Lig (lig 71, sezon 42167) aktif.
+- Diğer ligler için FotMob istatistik sayfası adresi `--add-url` ile eklenir (adreste lig ve sezon kimliği var).
+- 'sub_value': xG için GERÇEK gol, yenilen xG için yenilen gol, xG farkı için gol farkı (CSV ile doğrulandı).
+- Kullanım: olasılığa katılmaz, `fotmob_xg_notu` olarak risk notu. 10+ hafta birikince defterde faydasına bakılacak.
+- Şans göstergesi: (attığı gol - xG). Örn. 6 Kasım 2026: Çorum +8.0 (xG 13.0, gol 21), Konyaspor -5.6, Eyüpspor -5.0. Büyük pozitif şans sürdürülemez olabilir.
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 
