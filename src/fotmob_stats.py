@@ -118,6 +118,11 @@ def map_names(df, div):
     out = {}
     for t in df.team.unique():
         out[t] = man.get(t) or ours.get(norm(t)) or next((v for k, v in ours.items() if k.startswith(norm(t)) or norm(t).startswith(k)), "")
+    # Aynı bizim takıma iki FotMob adı eşlenirse güvenilmez: ikisini de boşalt (örn. 'Paris Saint-Germain' -> 'Paris FC' hatası)
+    sayac = pd.Series([v for v in out.values() if v]).value_counts()
+    for t, v in list(out.items()):
+        if v and sayac.get(v, 0) > 1 and t not in man:
+            out[t] = ""
     return out
 
 
@@ -178,7 +183,7 @@ def main():
             continue
         mp = map_names(df, r.div)
         df["fd_name"] = df.team.map(mp)
-        eksik = sorted(t for t, f in mp.items() if not f)
+        eksik = sorted(t for t, f in mp.items() if not f) if fd_names(r.div) else []  # kupa liglerinde eşleştirme yok
         if eksik:
             print("  [uyarı] eşleşmeyen takımlar (data/fotmob/team_names.csv'ye ekle):", eksik)
         hist = pd.concat([hist, df], ignore_index=True).drop_duplicates(
