@@ -16,11 +16,16 @@ from model import DixonColes
 
 
 def run(div: str, start: str, half_life: float, reg: float = 5.0, shift: float = 0.0,
-        ha_reg=None, window_years: int = 4, step_days: int = 14):
+        ha_reg=None, lam: float = 1.0, sot_k: float = 0.33, window_years: int = 4, step_days: int = 14):
     d = load()
     d = d[d["div"] == div].reset_index(drop=True)
     d["elo_diff"] = elo.compute(d)[0]
     d = d[d.hg.notna()].reset_index(drop=True)
+    # lam=1: sadece gol; lam<1: şut bazlı xG proxy ile karıştır (şut yoksa gol)
+    sx = (sot_k * d.hst).where(d.hst.notna(), d.hg)
+    sy = (sot_k * d.ast).where(d.ast.notna(), d.ag)
+    d["hg_eff"] = lam * d.hg + (1 - lam) * sx
+    d["ag_eff"] = lam * d.ag + (1 - lam) * sy
     yy = outcome(d.hg.to_numpy(), d.ag.to_numpy())
     start = pd.Timestamp(start)
     test = d[d.date >= start]

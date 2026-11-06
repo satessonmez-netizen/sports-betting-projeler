@@ -58,6 +58,8 @@ def load() -> pd.DataFrame:
             "home": df["HomeTeam"].str.strip(), "away": df["AwayTeam"].str.strip(),
             "hg": pd.to_numeric(df.get("FTHG"), errors="coerce"),
             "ag": pd.to_numeric(df.get("FTAG"), errors="coerce"),
+            "hs": pd.to_numeric(df.get("HS"), errors="coerce"), "as_": pd.to_numeric(df.get("AS"), errors="coerce"),
+            "hst": pd.to_numeric(df.get("HST"), errors="coerce"), "ast": pd.to_numeric(df.get("AST"), errors="coerce"),
             "oH": o["oH"], "oD": o["oD"], "oA": o["oA"],
         })
         frames.append(res.dropna(subset=["date"]))

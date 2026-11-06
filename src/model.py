@@ -39,6 +39,9 @@ class DixonColes:
         a = df.away.map(self.idx).to_numpy()
         x = df.hg.to_numpy(float)
         y = df.ag.to_numpy(float)
+        # Poisson kısmında 'etkin gol' (gol ile şut-bazlı xG proxy karışımı) kullanılabilir
+        xe = df["hg_eff"].to_numpy(float) if "hg_eff" in df else x
+        ye = df["ag_eff"].to_numpy(float) if "ag_eff" in df else y
         w = 0.5 ** ((ref_date - df.date).dt.days.to_numpy(float) / self.hl)
         reg, ha_reg, use_ha = self.reg, self.ha_reg, self.ha_reg is not None
 
@@ -56,8 +59,8 @@ class DixonColes:
             lh = np.exp(att[h] - dfn[a] + ha + tha[h])
             la = np.exp(att[a] - dfn[h])
             ll = (np.log(np.maximum(_tau(x, y, lh, la, rho), 1e-9))
-                  + x * np.log(lh) - lh - gammaln(x + 1)
-                  + y * np.log(la) - la - gammaln(y + 1))
+                  + xe * np.log(lh) - lh
+                  + ye * np.log(la) - la)
             pen = reg * (np.sum((att - mu) ** 2) + np.sum((dfn - mu) ** 2))
             if use_ha:
                 pen += ha_reg * np.sum(tha ** 2)
