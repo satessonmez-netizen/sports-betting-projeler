@@ -1,0 +1,10 @@
+home,away,pick,pH,pD,pA,score,conf,note
+Goztep,Buyuksehyr,1,0.47,0.27,0.26,2-1,Düşük,"TM: Başakşehir'de %9 kadro değeri eksik (Operi, Şengezer); Göztepe %2.5"
+Corum,Fenerbahce,2,0.27,0.25,0.48,1-2,Orta,TM: Fener'de Oosterwolde ve Asensio yok (%11 değer); Çorum eksiksiz
+Alanyaspor,Trabzonspor,2,0.26,0.27,0.47,1-2,Orta,"TM: Trabzon'da Franculino, Şimşir, Batagov, Jabol-Folcarelli yok (~%32 değer)"
+Stuttgart,Werder Bremen,1,0.52,0.24,0.24,2-1,Orta,TM: Stuttgart'ta Stiller/Vagnoman/Sauer belirsiz-yok (%21); Bremen'de Stage yok (%24)
+Man United,Aston Villa,1,0.4,0.27,0.33,2-1,Düşük,"TM: Šeško yok; Villa'da Onana, Ruggeri, Wan-Bissaka yok (%13 vs %10)"
+Valencia,Real Madrid,2,0.13,0.19,0.68,0-2,Yüksek,"TM: kadro değeri 1502M vs 157M; Madrid'de Rodrygo, Mendy, Asencio yok (%4.5)"
+Ath Madrid,Barcelona,2,0.34,0.26,0.4,1-2,Düşük,"TM: Barça'da Koundé, García, Christensen, Espart, Rodri, Olmo yok (%20); Atlético'da Romero yok"
+Napoli,Lazio,2,0.33,0.28,0.39,0-1,Düşük,"TM: Napoli'de Buongiorno, Lobotka, Neres, Santos, Badiashile yok (%31); Lazio %7.6"
+Inter,Como,1,0.53,0.25,0.22,1-0,Orta,"TM: Inter'de Lautaro yok; Como'da Kean, Rodriguez, Diao, Addai (hücum hattı) yok (~%25)"
