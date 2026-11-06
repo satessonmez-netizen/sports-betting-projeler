@@ -61,3 +61,17 @@ Bu iki seçenek kodda duruyor (`newcomer_shift`, `team_ha_reg`) ama varsayılan 
 - [ ] Sakatlık/kadro bilgisi, piyasanın bizden iyi olduğu ana alan
 - [ ] Piyasa oranını özellik olarak kullanan hibrit model
 - [ ] Haftalık otomatik rapor, kalibrasyon grafiği
+
+## Segment analizi (Süper Lig, `src/segments.py`)
+Model ile piyasa farkı (RPS, 738 maç, fark +0.0109, %95 aralık [0.0068, 0.0147]):
+| Segment | Maç | Fark |
+|---|---|---|
+| Deplasman favori | 235 | **+0.0234** |
+| Ev sahibi favori | 503 | +0.0050 |
+| Sezon sonu (Nis-May) | 144 | +0.0145 |
+| Sezon başı (Ağu-Eyl) | 178 | +0.0154 |
+| Diğer aylar | ~416 | ~+0.009 |
+
+**Bulgu:** Fark en çok deplasmanda oynayan favori maçlarında açılıyor. Bu maçlarda deplasman takımı gerçekte %57 kazanmış,
+model %45.5, piyasa %50.2 vermiş. Model güçlü takımları fazla ortalamaya çekiyor (düzenleme + Elo karışımı).
+Kısıt: 235 maç, gürültü payı yüksek. Piyasa da bu segmentte düşük kalmış, yani kısmen şans olabilir.
