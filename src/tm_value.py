@@ -30,6 +30,12 @@ OVERRIDES = {
     "Paris SG": "Paris Saint-Germain", "Le Mans": "Le Mans FC", "Rennes": "Stade Rennais", "Brest": "Stade Brestois 29",
     "For Sittard": "Fortuna Sittardia Combinatie", "Sp Lisbon": "Sporting CP", "Academico Viseu": "Académico de Viseu FC",
     "Lommel SK": "Lommel SK", "Bodrumspor": "Bodrum FK", "Amedspor": "Amed SK", "Corum": "Çorum FK",
+    "Man United": "Manchester United", "Nott'm Forest": "Nottingham Forest", "Barcelona": "FC Barcelona",
+    "Ath Bilbao": "Athletic Bilbao", "Ein Frankfurt": "Eintracht Frankfurt", "Milan": "AC Milan",
+    "Verona": "Hellas Verona", "St Etienne": "AS Saint-Étienne", "Den Haag": "ADO Den Haag",
+    "Sp Braga": "SC Braga", "St Truiden": "Sint-Truidense VV", "St. Gilloise": "Union Saint-Gilloise",
+    "Ad. Demirspor": "Adana Demirspor", "Buyuksehyr": "Basaksehir FK", "Gaziantep": "Gaziantep FK",
+    "Paris FC": "Paris FC",
 }
 
 

@@ -4,3 +4,6 @@ __pycache__/
 .env
 .env.*
 !.env.example
+data/tm_cache/
+data/tm_debug/
+output/
