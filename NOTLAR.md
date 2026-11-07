@@ -80,6 +80,9 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
   2. **'PAS' yok.** Düşük güvenli maçta da en güçlü tahmin yazılır (güven etiketiyle).
   3. **Çifte şans seçeneği kalır** (`python ledger.py dc`): Orta/Düşük güvenli maçlarda HER ZAMAN 'tahmin + beraberlik' (1X veya X2). Kullanıcı: 'favoriye güvenmiyorsan çifte şansı değerlendir', örnek Çorum-Fenerbahçe için X2. ('12' vermek tahmin yönünü bozduğu için bırakıldı.)
   4. Proje 'emekleme aşamasında'; kullanıcı şu an benim maç hakkındaki fikrimi merak ediyor, ileride yönü değiştirecek. Para/oran bazlı ölçüt şimdilik istenmedi (öneri: kağıt üstü getiri, onay bekliyor).
+- **İlk 11 istenmez (kullanıcı, 7 Kasım 2026):** İlk 11 maçtan ~1 saat önce açıklanıyor, tahminler ondan önce yazılıyor.
+  Tahminler SAKAT ve CEZALI durumuna göre güncellenir (Transfermarkt, `match_pack.py`). Kullanıcıdan 'ilk 11 çıkınca yaz' diye istekte bulunma.
+  Hatırlatma: sakatlığa göre yaptığım ayarların faydası geçmiş testte kanıtlanmadı (NOTLAR'daki deney bölümü).
 - Güven etiketleri: Yüksek (>=%60 ve piyasayla uyumlu), Orta, Düşük (yazı-tura).
 
 ## Denenip bırakılan veri kaynakları (ileride yeniden düşünülecek)
