@@ -35,13 +35,13 @@ COLS = ["id", "made_at", "date", "time_uk", "div", "home", "away", "late", "revi
         "first_pH", "first_pD", "first_pA", "first_pick",
         "model_pH", "model_pD", "model_pA", "xgH", "xgA",
         "open_oH", "open_oD", "open_oA", "bo_H", "bo_D", "bo_A",
-        "inj_pH", "inj_pD", "inj_pA", "kupon", "kupon_oran", "kupon_dahil", "bahis", "bahis_oran", "bahis_tutar", "hg", "ag", "bc_H", "bc_D", "bc_A", "cl_oH", "cl_oD", "cl_oA", "settled_at"]
+        "inj_pH", "inj_pD", "inj_pA", "kupon", "kupon_oran", "kupon_dahil", "bahis", "bahis_oran", "bahis_tutar", "kombine", "kombine_oran", "kombine_tutar", "hg", "ag", "bc_H", "bc_D", "bc_A", "cl_oH", "cl_oD", "cl_oA", "settled_at"]
 SEG_MIN = 100
 
 
 def read() -> pd.DataFrame:
     text = ["id", "made_at", "date", "time_uk", "div", "home", "away", "pick", "score", "conf", "note",
-            "first_pick", "kupon", "kupon_dahil", "bahis", "settled_at"]
+            "first_pick", "kupon", "kupon_dahil", "bahis", "kombine", "settled_at"]
     if LEDGER.exists():
         return pd.read_csv(LEDGER, dtype={c: "object" for c in text})
     return pd.DataFrame(columns=COLS).astype({c: "object" for c in text})
@@ -196,6 +196,50 @@ def cmd_bahis(a):
     print(f"{n} maç için varsayımsal bahis kaydedildi.")
 
 
+def cmd_kombine(a):
+    """Varsayımsal kombine (kağıt üstü): tek kupon, tüm maçlar tutarsa kazanır. Maç başlamadan kaydedilir."""
+    led = read()
+    now = now_uk()
+    k = pd.read_csv(a.file, dtype=str).fillna("")
+    idxs = []
+    for r in k.itertuples():
+        idx = led.index[(led.home == r.home) & (led.away == r.away) & led.hg.isna()]
+        if not len(idx):
+            raise SystemExit(f"Defterde yok/sonuçlanmış: {r.home} - {r.away}. Kombine kaydedilmedi.")
+        i = idx[0]
+        kick = pd.Timestamp(f"{led.at[i, 'date']} {led.at[i, 'time_uk'] if pd.notna(led.at[i, 'time_uk']) else '00:00'}")
+        if kick <= now:
+            raise SystemExit(f"Maç başlamış: {r.home} - {r.away}. Kombine kaydedilmedi.")
+        idxs.append((i, r))
+    for i, r in idxs:
+        led.at[i, "kombine"], led.at[i, "kombine_oran"], led.at[i, "kombine_tutar"] = r.secim, float(r.oran), float(a.tutar)
+    write(led)
+    print(f"{len(idxs)} maçlık kombine kaydedildi, tutar {a.tutar}.")
+
+
+def kombine_ozet(s, led):
+    kk = led[led.kombine.notna() & (led.kombine != "")]
+    if kk.empty:
+        return []
+    done = kk[kk.hg.notna()]
+    tutar = float(kk.kombine_tutar.astype(float).iloc[0])
+    oran = float(kk.kombine_oran.astype(float).prod())
+    out = ["", "## Varsayımsal kombine (kağıt üstü, dolar)",
+           f"- {len(kk)} maç, oran {oran:.1f}, tutar {tutar:.0f}; sonuçlanan {len(done)}/{len(kk)}"]
+    def hit(r):
+        res = "1" if r.hg > r.ag else "X" if r.hg == r.ag else "2"
+        return res in r.kombine
+    if len(done):
+        miss = [f"{r.home}-{r.away}" for r in done.itertuples() if not hit(r)]
+        if miss:
+            out.append(f"- TUTMADI ({', '.join(miss)}), net {-tutar:+.0f} dolar")
+        elif len(done) == len(kk):
+            out.append(f"- TUTTU, net {tutar*oran - tutar:+.0f} dolar")
+        else:
+            out.append("- şimdiye kadar tüm bacaklar tuttu, bekleyen var")
+    return out
+
+
 def bahis_ozet(s):
     b = s[s.bahis.notna() & (s.bahis != "")].copy()
     if b.empty:
@@ -304,6 +348,7 @@ def cmd_report(a):
         lines.append(f"Çifte şans: isabet %{100*np.mean(hit):.0f}, beklenen %{100*np.mean(exp):.0f} (n={len(hit)})")
         lines += kupon_ozet(s)
         lines += bahis_ozet(s)
+        lines += kombine_ozet(s, led)
         if o["n"] < SEG_MIN:
             lines.append(f"\n⚠ n={o['n']} < {SEG_MIN}: bu sayılardan 'iyi/kötü gidiyoruz' sonucu ÇIKARMA. Gürültü büyük.")
         # açılıştan kapanışa piyasa hareketi (aynı şirket: Bet365)
@@ -369,6 +414,7 @@ if __name__ == "__main__":
     sub.add_parser("report").set_defaults(f=cmd_report)
     sub.add_parser("errors").set_defaults(f=cmd_errors)
     sub.add_parser("dc").set_defaults(f=cmd_dc)
+    p = sub.add_parser("kombine"); p.add_argument("--file", required=True); p.add_argument("--tutar", default="100"); p.set_defaults(f=cmd_kombine)
     p = sub.add_parser("bahis"); p.add_argument("--file", required=True); p.set_defaults(f=cmd_bahis)
     p = sub.add_parser("kupon"); p.add_argument("--file", required=True); p.set_defaults(f=cmd_kupon)
     a = ap.parse_args()
