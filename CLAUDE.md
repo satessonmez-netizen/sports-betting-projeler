@@ -59,5 +59,5 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
 - Model: Dixon-Coles + Elo, bahisçinin gerisinde (RPS +0.005..0.011). Deneylerde model piyasaya bilgi eklemedi.
 
 ## Bekleyen
-- **Pazartesi 9 Kasım 2026:** kullanıcı ile 14 maçlık kuponun değerlendirmesi (hazırlık adımları `NOTLAR.md` 'Bekleyen işler').
+- **Salı 10 Kasım 2026 sabahı (kullanıcı 8 Kasım'da Pazartesi yerine Salı dedi):** kuponun değerlendirmesi. 08:47 otomatik rapor görevi sonuçları işler, sonra kullanıcıyla maç maç konuş (hazırlık adımları `NOTLAR.md` 'Bekleyen işler'). Güncel durum: 8 Süper Lig maçı rev7'de, dün/bugün/ilk tahmin ayrı kayıtlı.
 - 50 maçlık ek liste kullanıcıdan gelecek (beklemeye alındı).

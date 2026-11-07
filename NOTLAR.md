@@ -79,7 +79,7 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 - Hava: web aramasıyla maç günü bakılır, gerekçede risk notu. Etki küçük beklenir (yağmur/rüzgar/soğuk -> az gol).
 
 ## Bekleyen işler
-**Pazartesi 9 Kasım 2026: kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
+**Salı 10 Kasım 2026 sabahı (Pazartesi'den ertelendi): kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
 1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).
 2. `python3 ledger.py settle`, sonra `report`, `errors`, `dc`.
 3. Maç maç konuş: tahmin vs sonuç, ilk tahmin ile revize tahmin farkı (özellikle Atlético-Barça: analist %45, kullanıcı kararı %40), Yüksek güvenli 3 maçın (Galatasaray, Real Madrid, Beşiktaş) tutup tutmadığı, çifte şans isabeti.
