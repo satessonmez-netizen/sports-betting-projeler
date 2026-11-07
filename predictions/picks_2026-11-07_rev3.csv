@@ -1,0 +1,3 @@
+home,away,pick,pH,pD,pA,score,conf,note
+Stuttgart,Werder Bremen,1,0.52,0.24,0.24,2-1,Düşük,"TM: Stuttgart'ta Stiller/Vagnoman/Sauer belirsiz-yok (%21); Bremen'de Stage yok (%24) | XG NOTU: Stuttgart xG farkı -0.35/maç (şanssız -2.5), Bremen +0.14 (şanslı +3.1): xG şu an Bremen'i işaret ediyor; Stuttgart'ta Stiller/Vagnoman/Sauer belirsiz. Olasılık değişmedi, güven Orta->Düşük"
+Samsunspor,Konyaspor,1,0.37,0.27,0.36,1-0,Düşük,"Samsunspor son 7 maçı kaybetti; çok belirsiz | XG NOTU: Samsunspor xG farkı -0.74/maç (-1.7 şanssız), Konyaspor -0.21 (-5.6 şanssız, gol beklentinin çok altında): xG hafifçe Konyaspor'u işaret ediyor. Olasılık değişmedi"
