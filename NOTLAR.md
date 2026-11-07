@@ -75,6 +75,11 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 - Piyasadan >=8 puan ayrıştığımda nedenini yaz; güçlü takım maçlarında piyasaya yaklaş (model hafife alıyor).
 - **Kullanıcının kararı (6 Kasım 2026): tahminleri BEN araştırıp kendi analizimle yazarım.** Bahisçi oranları sadece KARNE (kıyas) olarak kullanılır, tahmin oradan kopyalanmaz. 'Piyasa tabanlı' öneri geri çekildi.
 - Amaç: bahisçiyi geçmek değil; kendi tahminimin kalitesini dürüstçe ölçmek ve zayıf yanları düzeltmek. Gerçek sonuçlar defterde piyasa ile kıyaslanır.
+- **Kullanıcı kuralları (7 Kasım 2026):**
+  1. **Güçlü tahmin (Yüksek güven) tek yazılır; çifte şans verilmez.** Kendini garantiye almak, ödemeyi aynı oranda düşürür ve bilgi katmaz.
+  2. **'PAS' yok.** Düşük güvenli maçta da en güçlü tahmin yazılır (güven etiketiyle).
+  3. **Çifte şans seçeneği kalır** (`python ledger.py dc`): düşük/orta güvenli maçlarda, beraberlik riski yüksekse (%27+) 'tahmin + beraberlik'.
+  4. Proje 'emekleme aşamasında'; kullanıcı şu an benim maç hakkındaki fikrimi merak ediyor, ileride yönü değiştirecek. Para/oran bazlı ölçüt şimdilik istenmedi (öneri: kağıt üstü getiri, onay bekliyor).
 - Güven etiketleri: Yüksek (>=%60 ve piyasayla uyumlu), Orta, Düşük (yazı-tura).
 
 ## Denenip bırakılan veri kaynakları (ileride yeniden düşünülecek)

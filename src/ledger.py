@@ -12,6 +12,7 @@ Kurallar (dürüstlük için):
 - Maç başladıktan sonra kaydedilen tahmin 'late=1' olur ve hiçbir istatistiğe girmez.
 - Sonuçlanmış satırın tahmini değiştirilemez.
 - 100 maçtan az örnekte rapor 'yorum yapma' uyarısı verir.
+- KURALLAR (kullanıcı kararı): Yüksek güvenli tahminde çifte şans verilmez (tek tahmin). 'PAS' yok: her maç için en güçlü tahmin yazılır.
 """
 import argparse
 import json
@@ -131,13 +132,17 @@ def cmd_dc(a):
     if u.empty:
         print("Bekleyen geçerli maç yok.")
         return
-    tot = 0
+    tot, n = 0, 0
     for r in u.itertuples():
+        if r.conf == "Yüksek":  # KURAL: güçlü tahmin tek yazılır, çifte şans verilmez
+            print(f"{r.date} {r.time_uk} | {r.home} - {r.away} | tek: {r.pick} (%{max(r.pH, r.pA)*100:.0f}) | çifte şans: YOK (güçlü tahmin, tek yazılır)")
+            continue
         lab, p = dc_label(r.pH, r.pD, r.pA, r.pick)
         tot += p
+        n += 1
         risk = "  [beraberlik riski yüksek]" if r.pD >= DRAW_RISK else ""
         print(f"{r.date} {r.time_uk} | {r.home} - {r.away} | tek: {r.pick} | çifte şans: {lab} (%{p*100:.0f}){risk}")
-    print(f"Beklenen çifte şans isabeti: %{100*tot/len(u):.0f} (n={len(u)})")
+    print(f"Çifte şans verilen {n} maç için beklenen isabet: %{100*tot/max(n, 1):.0f}")
 
 
 def cmd_settle(a):
@@ -205,7 +210,7 @@ def cmd_report(a):
         o, y, mine, mk = _eval(s)
         lines += ["", "## Genel", _fmt(o)]
         hit, exp = [], []
-        for r in s.itertuples():
+        for r in s[s.conf != "Yüksek"].itertuples():  # güçlü tahminlerde çifte şans yok
             lab, p = dc_label(r.pH, r.pD, r.pA, r.pick)
             res = "1" if r.hg > r.ag else "X" if r.hg == r.ag else "2"
             hit.append(res in lab)
