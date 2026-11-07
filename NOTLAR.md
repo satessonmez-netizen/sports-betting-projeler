@@ -81,6 +81,8 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 ## Kullanıcının bildirdiği sonuçlar (CSV gelene kadar; Salı settle sırasında CSV ile doğrula)
 - 2026-11-07 | Göztepe 1-2 Başakşehir (kullanıcı bildirdi). Tahminim: 1 (%48, Düşük), çifte şans 1X: İKİSİ DE TUTMADI. Defterde henüz sonuçlanmadı (CSV bekleniyor).
 
+- 2026-11-07 sonuçları (ESPN, sports-skills; CSV gelince Salı settle ile doğrula): Eyüpspor 0-2 Kocaelispor, Samsunspor 1-0 Konyaspor, Galatasaray 4-3 Amedspor, Göztepe 1-2 Başakşehir, Stuttgart 1-0 Bremen, Valencia 0-3 Real Madrid. Yön: 5/6 doğru (sadece Göztepe yanlış). n=6, sonuç çıkarılmaz.
+
 ## Bekleyen işler
 **Salı 10 Kasım 2026 sabahı (Pazartesi'den ertelendi): kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
 1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).
