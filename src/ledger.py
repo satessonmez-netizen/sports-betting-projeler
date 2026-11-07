@@ -35,13 +35,13 @@ COLS = ["id", "made_at", "date", "time_uk", "div", "home", "away", "late", "revi
         "first_pH", "first_pD", "first_pA", "first_pick",
         "model_pH", "model_pD", "model_pA", "xgH", "xgA",
         "open_oH", "open_oD", "open_oA", "bo_H", "bo_D", "bo_A",
-        "inj_pH", "inj_pD", "inj_pA", "kupon", "kupon_oran", "kupon_dahil", "hg", "ag", "bc_H", "bc_D", "bc_A", "cl_oH", "cl_oD", "cl_oA", "settled_at"]
+        "inj_pH", "inj_pD", "inj_pA", "kupon", "kupon_oran", "kupon_dahil", "bahis", "bahis_oran", "bahis_tutar", "hg", "ag", "bc_H", "bc_D", "bc_A", "cl_oH", "cl_oD", "cl_oA", "settled_at"]
 SEG_MIN = 100
 
 
 def read() -> pd.DataFrame:
     text = ["id", "made_at", "date", "time_uk", "div", "home", "away", "pick", "score", "conf", "note",
-            "first_pick", "kupon", "kupon_dahil", "settled_at"]
+            "first_pick", "kupon", "kupon_dahil", "bahis", "settled_at"]
     if LEDGER.exists():
         return pd.read_csv(LEDGER, dtype={c: "object" for c in text})
     return pd.DataFrame(columns=COLS).astype({c: "object" for c in text})
@@ -174,6 +174,42 @@ def cmd_kupon(a):
     print(f"{n} maç için kupon tercihi kaydedildi.")
 
 
+def cmd_bahis(a):
+    """Varsayımsal 'zorunlu 5 maç' bahsi (kağıt üstü): seçim, oran, tutar. Maç başlamadan kaydedilir."""
+    led = read()
+    now = now_uk()
+    k = pd.read_csv(a.file, dtype=str).fillna("")
+    n = 0
+    for r in k.itertuples():
+        idx = led.index[(led.home == r.home) & (led.away == r.away) & led.hg.isna()]
+        if not len(idx):
+            print(f"  [atlandı] defterde yok/sonuçlanmış: {r.home} - {r.away}")
+            continue
+        i = idx[0]
+        kick = pd.Timestamp(f"{led.at[i, 'date']} {led.at[i, 'time_uk'] if pd.notna(led.at[i, 'time_uk']) else '00:00'}")
+        if kick <= now:
+            print(f"  [reddedildi] maç başlamış: {r.home} - {r.away}")
+            continue
+        led.at[i, "bahis"], led.at[i, "bahis_oran"], led.at[i, "bahis_tutar"] = r.secim, float(r.oran), float(r.tutar)
+        n += 1
+    write(led)
+    print(f"{n} maç için varsayımsal bahis kaydedildi.")
+
+
+def bahis_ozet(s):
+    b = s[s.bahis.notna() & (s.bahis != "")].copy()
+    if b.empty:
+        return []
+    def hit(r):
+        res = "1" if r.hg > r.ag else "X" if r.hg == r.ag else "2"
+        return res in r.bahis
+    b["tuttu"] = b.apply(hit, axis=1)
+    tutar = b.bahis_tutar.astype(float)
+    net = float((b.bahis_oran.astype(float) * tutar * b.tuttu).sum() - tutar.sum())
+    return ["", "## Varsayımsal 5 maç bahsi (kağıt üstü, dolar)",
+            f"- n={len(b)}, tuttu {int(b.tuttu.sum())}, yatırılan {tutar.sum():.0f}, net {net:+.0f} dolar"]
+
+
 def kupon_ozet(s):
     """Sonuçlanmış satırlar için kâğıt üstü kupon özeti (1 birim bahis, tekli)."""
     k = s[s.kupon.notna() & (s.kupon != "")].copy()
@@ -267,6 +303,7 @@ def cmd_report(a):
             exp.append(p)
         lines.append(f"Çifte şans: isabet %{100*np.mean(hit):.0f}, beklenen %{100*np.mean(exp):.0f} (n={len(hit)})")
         lines += kupon_ozet(s)
+        lines += bahis_ozet(s)
         if o["n"] < SEG_MIN:
             lines.append(f"\n⚠ n={o['n']} < {SEG_MIN}: bu sayılardan 'iyi/kötü gidiyoruz' sonucu ÇIKARMA. Gürültü büyük.")
         # açılıştan kapanışa piyasa hareketi (aynı şirket: Bet365)
@@ -332,6 +369,7 @@ if __name__ == "__main__":
     sub.add_parser("report").set_defaults(f=cmd_report)
     sub.add_parser("errors").set_defaults(f=cmd_errors)
     sub.add_parser("dc").set_defaults(f=cmd_dc)
+    p = sub.add_parser("bahis"); p.add_argument("--file", required=True); p.set_defaults(f=cmd_bahis)
     p = sub.add_parser("kupon"); p.add_argument("--file", required=True); p.set_defaults(f=cmd_kupon)
     a = ap.parse_args()
     a.f(a)
