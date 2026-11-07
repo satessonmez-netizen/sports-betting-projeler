@@ -66,6 +66,8 @@ Adaylar: **FootyStats** ve **API-Football**. Henüz hiçbiri alınmadı. Fiyat/p
 ## Kullanıcıdan gelen yerel bilgiler (doğrulanmamış, kullanıcı bildirdi)
 Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasyon gibi benim erişemediğim bilgiler buraya yazılır.
 - 2026-11-07 | Fenerbahçe | Teknik direktör değişti, Emre Belözoğlu geldi | Etkisi bilinmiyor. Yeni hoca etkisini geçmiş veride test etmedik. İlk maçı Çorum - Fenerbahçe (8 Kasım). Model hoca değişikliğini bilmez: son 4 yıllık güce bakar.
+- 2026-11-07 | Atlético Madrid - Barcelona | Kullanıcı görüşü (futbol bilgisiyle): (1) Atlético kazanırsa liderliğe oturur, moral/motivasyon faktörü. (2) Atlético 5/5 formda. (3) Barça daha atak oynuyor, xG üstünlüğü mantıklı. (4) Barça uzun süredir aralıksız oynuyor, Rodri ve Olmo gibi kilit oyuncular yok (TM: Olmo 21 Ekim'den, Rodri 3 Kasım'dan beri sakat). (5) Barça favori ama ÇOK GÜÇLÜ değil, sakatlıklar endişe verici. (6) Simeone bu maçı almak isteyecek. Karar: tahmin %40'ta KALSIN (benim görüşüm %45 civarıydı; defter hangimizin haklı olduğunu gösterecek).
+  Gelecekte denenecek fikirler: mevkiye göre sakatlık (eksik savunmacı sayısı -> yenilen gol), 'lider/zirve maçı motivasyonu', bu sezon verisine (xG) daha çok ağırlık.
 
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
