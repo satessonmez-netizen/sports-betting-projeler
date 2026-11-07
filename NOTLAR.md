@@ -69,6 +69,14 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 - 2026-11-07 | Atlético Madrid - Barcelona | Kullanıcı görüşü (futbol bilgisiyle): (1) Atlético kazanırsa liderliğe oturur, moral/motivasyon faktörü. (2) Atlético 5/5 formda. (3) Barça daha atak oynuyor, xG üstünlüğü mantıklı. (4) Barça uzun süredir aralıksız oynuyor, Rodri ve Olmo gibi kilit oyuncular yok (TM: Olmo 21 Ekim'den, Rodri 3 Kasım'dan beri sakat). (5) Barça favori ama ÇOK GÜÇLÜ değil, sakatlıklar endişe verici. (6) Simeone bu maçı almak isteyecek. Karar: tahmin %40'ta KALSIN (benim görüşüm %45 civarıydı; defter hangimizin haklı olduğunu gösterecek).
   Gelecekte denenecek fikirler: mevkiye göre sakatlık (eksik savunmacı sayısı -> yenilen gol), 'lider/zirve maçı motivasyonu', bu sezon verisine (xG) daha çok ağırlık.
 
+## Bekleyen işler
+**Pazartesi 9 Kasım 2026: kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
+1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).
+2. `python3 ledger.py settle`, sonra `report`, `errors`, `dc`.
+3. Maç maç konuş: tahmin vs sonuç, ilk tahmin ile revize tahmin farkı (özellikle Atlético-Barça: analist %45, kullanıcı kararı %40), Yüksek güvenli 3 maçın (Galatasaray, Real Madrid, Beşiktaş) tutup tutmadığı, çifte şans isabeti.
+4. n=14 (Gaziantep-Kasımpaşa 'geç' kayıt, sayılmaz) çok az: sonuç çıkarma, sadece dersleri not al.
+5. Salı 08:47 otomatik rapor görevi ve Perşembe 09:41 FotMob çekimi ayrıca çalışıyor.
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 
