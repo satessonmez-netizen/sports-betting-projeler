@@ -40,6 +40,8 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
   4) Saha/seyirci: web aramasıyla ben bakarım (seyirci cezası, deplasman taraftarı yasağı, suni çim, saha durumu).
   5) Hava (yukarıda). Her maçın gerekçesine bu 5 başlıktan önemli olanı kısaca yaz; önemsizse yazma.
 
+- **Kupon tercihi (8 Kasım 2026, kullanıcı onayı):** oranlı listeyle 'gerçek kupon yapsaydın' tercihi deftere ayrı sütun: `kupon`, `kupon_oran`, `kupon_dahil` (`python3 ledger.py kupon --file predictions/kupon_<tarih>.csv`, maç başlamadan). Rapor kağıt üstü tekli getiri verir. Bahisçi payı ~%15-18, çifte şans oranları ~1.05-1.3: gerçek para önerisi DEĞİL.
+
 ## Haftalık akış
 1. Kullanıcı maç listesi verir (metin/ekran görüntüsü). Takım adları football-data biçiminde (Fenerbahce, Besiktas, Man United, Ath Madrid...).
 2. Bulut: `cd src && python3 -W ignore match_pack.py <liste.txt> --no-tm --no-download` (model, form, FotMob xG notu, haberler). Önce `python3 refresh_data.py` ile veriyi yenile.
