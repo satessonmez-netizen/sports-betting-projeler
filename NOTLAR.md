@@ -1,5 +1,8 @@
 # NOTLAR: oturumlar arası hafıza
 
+> **ÖNCE `CLAUDE.md` dosyasını oku** (kullanıcı kuralları, haftalık akış, zamanlanmış görevler, oturum uyarısı).
+> Bu dosya detay: deney sonuçları, kullanıcı notları, kararlar. Kurallar `CLAUDE.md` ve aşağıdaki 'Kurallar' bölümünde.
+
 Bu dosya, yeni bir oturumda "hangi dersleri öğrendik" sorusunun tek cevabıdır. Her hafta raporun ardından
 güncellenir. Kural: **100 maçtan az örnekten sonuç çıkarma.** Bir ders eklerken kaç maça dayandığını yaz.
 
