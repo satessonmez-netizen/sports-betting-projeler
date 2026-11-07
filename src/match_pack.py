@@ -164,6 +164,33 @@ def hedef(h, team, now):
             "son_sıraya_fark": pts[team] - tbl[-1][1], "oynanan_takım_sayısı": n}
 
 
+_EU_CACHE = {}
+EU_COMPS = ("champions-league", "europa-league", "conference-league")
+
+
+def avrupa_maclari(now, days=7):
+    """Son `days` günde oynanan Avrupa maçları {ESPN takım adı: [(tarih, rakip, skor)]}. sports-skills yoksa/çökerse boş."""
+    out = {}
+    try:
+        import json, subprocess
+        for k in range(1, days + 1):
+            day = str((now - pd.Timedelta(days=k)).date())
+            if day not in _EU_CACHE:
+                r = subprocess.run(["sports-skills", "football", "get_daily_schedule", f"--date={day}"],
+                                   capture_output=True, text=True, timeout=60)
+                _EU_CACHE[day] = (json.loads(r.stdout).get("data") or {}).get("events") or []
+            for e in _EU_CACHE[day]:
+                if e.get("competition", {}).get("id") in EU_COMPS and e.get("status") == "closed":
+                    c = e.get("competitors", [])
+                    names = [x.get("team", {}).get("name") for x in c]
+                    scores = [x.get("score") for x in c]
+                    for i, n in enumerate(names):
+                        out.setdefault(n, []).append((day, names[1 - i], f"{scores[i]}-{scores[1 - i]}"))
+    except Exception:  # noqa: BLE001
+        return {}
+    return out
+
+
 INJ_GAMMA = 1.0  # DENEYSEL, kanıtsız: iki takımın ağırlıklı eksik payı farkı (0-1) başına log-oran kayması
 
 
@@ -279,6 +306,8 @@ def main():
             if ah is not None and aa is not None:
                 entry["model_sakatlık_ayarlı"] = injury_tilt(entry["model"], ah, aa)
         entry["takvim"] = {t: takvim(h, t, now) for t in (m["home"], m["away"])}
+        eu = avrupa_maclari(now)
+        entry["avrupa_son7gün"] = {t: next((v for n, v in eu.items() if norm(n)[:5] == norm(t)[:5]), []) for t in (m["home"], m["away"])}
         entry["lig_hedefi"] = {t: hedef(h, t, now) for t in (m["home"], m["away"])}
         pack.append(entry)
     out_dir = ROOT / "output"
