@@ -34,7 +34,7 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
   Elle keyfi olasılık ayarı YOK. Çıktı pakette `model_sakatlık_ayarlı`, deftere `inj_pH/pD/pA` olarak yazılır (ilk tahminden ayrı izlenir).
   100+ maçta hangisi (benim tahmin / model / sakatlık formülü / piyasa) daha iyi bakılacak. Parametreler DENEYSEL, kanıtsız.
 - **Ek araştırma maddeleri (kullanıcı 'hepsini ekle' dedi, 8 Kasım 2026):** hepsi RİSK NOTU, olasılığa elle katılmaz (kanıtsız).
-  1) Takvim yoğunluğu: pakette `takvim` (lig CSV'sinden gün/maç sayısı); kupa/Avrupa maçını web'den ben kontrol ederim.
+  1) Takvim yoğunluğu: pakette `takvim` (yalnız lig) + `avrupa_son7gün` (sports-skills paketi, ESPN; kuruldu 8 Kasım). Avrupa maçından 3-4 gün sonra yorgunluk/moral notu yaz.
   2) Lig hedefi: pakette `lig_hedefi` (sıra, puan, lidere/son sıraya fark); şampiyonluk/Avrupa/küme düşme baskısını gerekçede yaz.
   3) Hakem: web aramasıyla ben bakarım (hakem 1-2 gün önce açıklanır; kart/penaltı eğilimi). Bulamazsam 'bilinmiyor' yaz.
   4) Saha/seyirci: web aramasıyla ben bakarım (seyirci cezası, deplasman taraftarı yasağı, suni çim, saha durumu).
