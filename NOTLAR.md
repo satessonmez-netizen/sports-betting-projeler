@@ -78,6 +78,9 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
   Karar: sabit formül (`injury_tilt`), mevki ağırlıklı, deftere ayrı kolon (`inj_p*`). Test: 100+ maç sonra. Mevki testi (geçmiş veri) ileride.
 - Hava: web aramasıyla maç günü bakılır, gerekçede risk notu. Etki küçük beklenir (yağmur/rüzgar/soğuk -> az gol).
 
+## Kullanıcının bildirdiği sonuçlar (CSV gelene kadar; Salı settle sırasında CSV ile doğrula)
+- 2026-11-07 | Göztepe 1-2 Başakşehir (kullanıcı bildirdi). Tahminim: 1 (%48, Düşük), çifte şans 1X: İKİSİ DE TUTMADI. Defterde henüz sonuçlanmadı (CSV bekleniyor).
+
 ## Bekleyen işler
 **Salı 10 Kasım 2026 sabahı (Pazartesi'den ertelendi): kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
 1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).
