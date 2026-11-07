@@ -63,6 +63,10 @@ Adaylar: **FootyStats** ve **API-Football**. Henüz hiçbiri alınmadı. Fiyat/p
   Osimhen sakatlığı FotMob'da yoktu, Transfermarkt'ta vardı. Sakatlık kaynağı Transfermarkt olarak kalır.
 - Haberler olasılığa katılmaz, `haber_basliklari` olarak risk notu.
 
+## Kullanıcıdan gelen yerel bilgiler (doğrulanmamış, kullanıcı bildirdi)
+Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasyon gibi benim erişemediğim bilgiler buraya yazılır.
+- 2026-11-07 | Fenerbahçe | Teknik direktör değişti, Emre Belözoğlu geldi | Etkisi bilinmiyor. Yeni hoca etkisini geçmiş veride test etmedik. İlk maçı Çorum - Fenerbahçe (8 Kasım). Model hoca değişikliğini bilmez: son 4 yıllık güce bakar.
+
 ## Canlı defterden dersler (güncellenecek)
 (Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
 
