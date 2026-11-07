@@ -35,7 +35,7 @@ COLS = ["id", "made_at", "date", "time_uk", "div", "home", "away", "late", "revi
         "first_pH", "first_pD", "first_pA", "first_pick",
         "model_pH", "model_pD", "model_pA", "xgH", "xgA",
         "open_oH", "open_oD", "open_oA", "bo_H", "bo_D", "bo_A",
-        "hg", "ag", "bc_H", "bc_D", "bc_A", "cl_oH", "cl_oD", "cl_oA", "settled_at"]
+        "inj_pH", "inj_pD", "inj_pA", "hg", "ag", "bc_H", "bc_D", "bc_A", "cl_oH", "cl_oD", "cl_oA", "settled_at"]
 SEG_MIN = 100
 
 
@@ -89,6 +89,9 @@ def cmd_add(a):
                "xgH": m["beklenen_gol"][0], "xgA": m["beklenen_gol"][1],
                "open_oH": f["oH"], "open_oD": f["oD"], "open_oA": f["oA"],
                "bo_H": f["boH"], "bo_D": f["boD"], "bo_A": f["boA"]}
+        ij = e.get("model_sakatlık_ayarlı")
+        if ij:
+            row.update({"inj_pH": ij["1"], "inj_pD": ij["X"], "inj_pA": ij["2"]})
         idx = led.index[led["id"] == mid]
         if len(idx):
             i = idx[0]

@@ -72,6 +72,11 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 - 2026-11-07 | Atlético Madrid - Barcelona | Kullanıcı görüşü (futbol bilgisiyle): (1) Atlético kazanırsa liderliğe oturur, moral/motivasyon faktörü. (2) Atlético 5/5 formda. (3) Barça daha atak oynuyor, xG üstünlüğü mantıklı. (4) Barça uzun süredir aralıksız oynuyor, Rodri ve Olmo gibi kilit oyuncular yok (TM: Olmo 21 Ekim'den, Rodri 3 Kasım'dan beri sakat). (5) Barça favori ama ÇOK GÜÇLÜ değil, sakatlıklar endişe verici. (6) Simeone bu maçı almak isteyecek. Karar: tahmin %40'ta KALSIN (benim görüşüm %45 civarıydı; defter hangimizin haklı olduğunu gösterecek).
   Gelecekte denenecek fikirler: mevkiye göre sakatlık (eksik savunmacı sayısı -> yenilen gol), 'lider/zirve maçı motivasyonu', bu sezon verisine (xG) daha çok ağırlık.
 
+## Karar: sakatlık formülü ve hava (2026-11-08)
+- Kullanıcı itirazı: sakat oyuncu veri, neden katmıyorsun. Cevap: elle ayarlıyordum (tutarsız); testte kaba ölçümle fayda çıkmamıştı.
+  Karar: sabit formül (`injury_tilt`), mevki ağırlıklı, deftere ayrı kolon (`inj_p*`). Test: 100+ maç sonra. Mevki testi (geçmiş veri) ileride.
+- Hava: web aramasıyla maç günü bakılır, gerekçede risk notu. Etki küçük beklenir (yağmur/rüzgar/soğuk -> az gol).
+
 ## Bekleyen işler
 **Pazartesi 9 Kasım 2026: kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
 1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).

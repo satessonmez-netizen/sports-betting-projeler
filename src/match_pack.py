@@ -137,6 +137,18 @@ def value_tilt(model, vh, va):
             "not": "DENEYSEL: takım değeri oranı (beta=0.098); kanıt zayıf"}
 
 
+INJ_GAMMA = 1.0  # DENEYSEL, kanıtsız: iki takımın ağırlıklı eksik payı farkı (0-1) başına log-oran kayması
+
+
+def injury_tilt(model, ah, aa):
+    """Sabit formül (keyfi elle ayar yok): ah/aa = ev/dep ağırlıklı eksik oyuncu değeri payı."""
+    x = float(aa) - float(ah)   # + = deplasman daha çok eksik, ev lehine
+    p = np.array([model["1"], model["X"], model["2"]]) * np.array([np.exp(INJ_GAMMA * x), 1.0, np.exp(-INJ_GAMMA * x)])
+    p = p / p.sum()
+    return {"1": round(float(p[0]), 3), "X": round(float(p[1]), 3), "2": round(float(p[2]), 3),
+            "not": f"DENEYSEL sabit formül (gamma={INJ_GAMMA}); eksik payı ev {ah:.3f}, dep {aa:.3f}"}
+
+
 def fotmob_note(div, team):
     """En güncel FotMob anlık görüntüsünden takımın xG özeti (olasılığa KATILMAZ, sadece risk notu)."""
     p = ROOT / "data" / "fotmob" / "history.csv"
@@ -235,6 +247,10 @@ def main():
             va = entry["transfermarkt"][m["away"]].get("kadro_değeri_milyon_€")
             if vh and va:
                 entry["model_değer_ayarlı"] = value_tilt(entry["model"], vh, va)
+            ah = entry["transfermarkt"][m["home"]].get("ağırlıklı_eksik_payı")
+            aa = entry["transfermarkt"][m["away"]].get("ağırlıklı_eksik_payı")
+            if ah is not None and aa is not None:
+                entry["model_sakatlık_ayarlı"] = injury_tilt(entry["model"], ah, aa)
         pack.append(entry)
     out_dir = ROOT / "output"
     out_dir.mkdir(exist_ok=True)

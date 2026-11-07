@@ -27,6 +27,14 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
 6. Kullanıcıdan gelen yerel bilgiyi (hoca değişti, motivasyon) `NOTLAR.md` 'Kullanıcıdan gelen yerel bilgiler'e tarihle ekle; olasılığa katmadan risk notu yap.
 7. Güvenlik: API anahtarını sohbete yazdırma. Okumadığın scripti çalıştırma. Sertifika/doğrulama kapatma.
 
+## Yeni kurallar (8 Kasım 2026, kullanıcı onayı)
+- **Hava durumu:** her maç için maç günü/şehir hava tahminini WEB ARAMASIYLA ben bakarım (kullanıcıyı uğraştırma; Open-Meteo bulut ortamından kapalı, aşılmaz).
+  Yağmur/rüzgar/aşırı soğuk varsa gerekçeye 'hava' notu yaz (olasılığa elle katma, kanıtsız). Çatılı/kapalı stat varsa belirt.
+- **Sakat/ceza SABİT FORMÜL:** `match_pack.py injury_tilt` (gamma=1.0, mevki ağırlığı kaleci 1.3 / forvet-kanat 1.1, diğer 1.0, eksik değer payı farkı).
+  Elle keyfi olasılık ayarı YOK. Çıktı pakette `model_sakatlık_ayarlı`, deftere `inj_pH/pD/pA` olarak yazılır (ilk tahminden ayrı izlenir).
+  100+ maçta hangisi (benim tahmin / model / sakatlık formülü / piyasa) daha iyi bakılacak. Parametreler DENEYSEL, kanıtsız.
+- Kullanıcı eksik araştırma maddeleri teklifi: takvim yoğunluğu, hakem, saha/seyirci cezası, lig hedefi (henüz onaylanmadı).
+
 ## Haftalık akış
 1. Kullanıcı maç listesi verir (metin/ekran görüntüsü). Takım adları football-data biçiminde (Fenerbahce, Besiktas, Man United, Ath Madrid...).
 2. Bulut: `cd src && python3 -W ignore match_pack.py <liste.txt> --no-tm --no-download` (model, form, FotMob xG notu, haberler). Önce `python3 refresh_data.py` ile veriyi yenile.

@@ -138,6 +138,16 @@ def find_club(fd_name: str, div: str):
                       f"(sütunlar: div,fd_name,tm_slug,tm_id,tm_name).")
 
 
+def pos_weight(pos):
+    """Mevki ağırlığı (DENEYSEL, kanıtsız): kaleci ve forvet eksikliği biraz daha ağır sayılır."""
+    p = (pos or "").lower()
+    if "keeper" in p:
+        return 1.3
+    if any(k in p for k in ("forward", "winger", "striker")):
+        return 1.1
+    return 1.0
+
+
 def club_info(fd_name: str, div: str) -> dict:
     """Bir kulüp için kadro değeri + sakatlık/ceza. Hata durumunda 'hata' alanı döner (çökmez)."""
     res = {"takım": fd_name}
@@ -155,13 +165,17 @@ def club_info(fd_name: str, div: str) -> dict:
             _debug(f"inj_{cid}", inj_html)
             res["hata_sakatlik"] = f"Sakatlık tablosu okunamadı. Ham HTML: data/tm_debug/inj_{cid}.html"
         vals = {p["name"]: p["value"] for p in squad}
+        poss = {p["name"]: p.get("position") for p in squad}
         for i in inj:
             i["değer"] = vals.get(i["name"])
+            i["mevki"] = poss.get(i["name"])
         total = sum(v for v in vals.values() if v)
         inj_real = [i for i in inj if i["tür"] == "sakat_ceza"]
         inj_other = [i for i in inj if i["tür"] != "sakat_ceza"]
         out_val = sum(i["değer"] for i in inj_real if i.get("değer"))
+        w_out = sum(i["değer"] * pos_weight(i.get("mevki")) for i in inj_real if i.get("değer"))
         res.update({
+            "ağırlıklı_eksik_payı": round(w_out / total, 4) if total else None,
             "kadro_değeri_milyon_€": round(total / 1e6, 1) if total else None,
             "en_değerli_5": sorted(([p["name"], round(p["value"] / 1e6, 1)] for p in squad if p["value"]),
                                    key=lambda x: -x[1])[:5],
