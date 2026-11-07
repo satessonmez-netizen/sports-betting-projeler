@@ -78,7 +78,7 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 - **Kullanıcı kuralları (7 Kasım 2026):**
   1. **Güçlü tahmin (Yüksek güven) tek yazılır; çifte şans verilmez.** Kendini garantiye almak, ödemeyi aynı oranda düşürür ve bilgi katmaz.
   2. **'PAS' yok.** Düşük güvenli maçta da en güçlü tahmin yazılır (güven etiketiyle).
-  3. **Çifte şans seçeneği kalır** (`python ledger.py dc`): düşük/orta güvenli maçlarda, beraberlik riski yüksekse (%27+) 'tahmin + beraberlik'.
+  3. **Çifte şans seçeneği kalır** (`python ledger.py dc`): Orta/Düşük güvenli maçlarda HER ZAMAN 'tahmin + beraberlik' (1X veya X2). Kullanıcı: 'favoriye güvenmiyorsan çifte şansı değerlendir', örnek Çorum-Fenerbahçe için X2. ('12' vermek tahmin yönünü bozduğu için bırakıldı.)
   4. Proje 'emekleme aşamasında'; kullanıcı şu an benim maç hakkındaki fikrimi merak ediyor, ileride yönü değiştirecek. Para/oran bazlı ölçüt şimdilik istenmedi (öneri: kağıt üstü getiri, onay bekliyor).
 - Güven etiketleri: Yüksek (>=%60 ve piyasayla uyumlu), Orta, Düşük (yazı-tura).
 

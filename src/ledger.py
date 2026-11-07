@@ -12,7 +12,7 @@ Kurallar (dürüstlük için):
 - Maç başladıktan sonra kaydedilen tahmin 'late=1' olur ve hiçbir istatistiğe girmez.
 - Sonuçlanmış satırın tahmini değiştirilemez.
 - 100 maçtan az örnekte rapor 'yorum yapma' uyarısı verir.
-- KURALLAR (kullanıcı kararı): Yüksek güvenli tahminde çifte şans verilmez (tek tahmin). 'PAS' yok: her maç için en güçlü tahmin yazılır.
+- KURALLAR (kullanıcı kararı): Yüksek güvenli tahminde çifte şans verilmez (tek tahmin). Orta/Düşük güvende çifte şans = tahmin + beraberlik (1X/X2). 'PAS' yok: her maç için en güçlü tahmin yazılır.
 """
 import argparse
 import json
@@ -112,18 +112,20 @@ def cmd_add(a):
     print(f"{added} eklendi, {revised} güncellendi, {late} geç. Toplam {len(led)} satır.")
 
 
-DRAW_RISK = 0.27
+DRAW_RISK = 0.27  # sadece bilgi amaçlı işaret: beraberlik ihtimali bu değerin üstündeyse 'beraberlik riski yüksek'
 
 
 def dc_label(pH, pD, pA, pick=None):
-    """Çifte şans. Beraberlik riski yüksekse (pD >= %27) benim tahminim + beraberlik (1X / X2);
-    değilse en az olası sonucu dışarıda bırak (en çok kapsama). Döner: (etiket, kapsanan olasılık)."""
+    """Çifte şans = benim tahminim + beraberlik (1X veya X2). Tahminle tutarlı: favoriyi korur, beraberliği kapsar.
+    (Eski 'en çok kapsama' kuralı bazen '12' veriyordu: tahmin yönünü bozuyordu, kaldırıldı.)
+    Döner: (etiket, kapsanan olasılık)."""
+    if str(pick) == "1":
+        return "1X", pH + pD
+    if str(pick) == "2":
+        return "X2", pD + pA
     p = {"1": pH, "X": pD, "2": pA}
-    if pD >= DRAW_RISK and str(pick) in ("1", "2"):
-        return ("1X", pH + pD) if str(pick) == "1" else ("X2", pD + pA)
     out = min(p, key=p.get)
-    lab = {"2": "1X", "1": "X2", "X": "12"}[out]
-    return lab, 1 - p[out]
+    return {"2": "1X", "1": "X2", "X": "12"}[out], 1 - p[out]
 
 
 def cmd_dc(a):
@@ -141,7 +143,7 @@ def cmd_dc(a):
         tot += p
         n += 1
         risk = "  [beraberlik riski yüksek]" if r.pD >= DRAW_RISK else ""
-        print(f"{r.date} {r.time_uk} | {r.home} - {r.away} | tek: {r.pick} | çifte şans: {lab} (%{p*100:.0f}){risk}")
+        print(f"{r.date} {r.time_uk} | {r.home} - {r.away} | tek: {r.pick} | çifte şans: {lab} (%{p*100:.0f}, adil oran ~{1/p:.2f}){risk}")
     print(f"Çifte şans verilen {n} maç için beklenen isabet: %{100*tot/max(n, 1):.0f}")
 
 
