@@ -1,5 +1,10 @@
 # CLAUDE.md: önce bunu oku (oturum başında ve bağlam sıkıştırıldıktan sonra)
 
+> ## EN ÖNEMLİ UYARI: zamanlanmış görevler OTURUMA bağlıdır
+> Salı (sonuç raporu) ve Perşembe (FotMob xG) görevleri, kurulduğu oturuma bağlı. **Yeni oturum açılırsa BOZULUR.**
+> Bağlam şişerse yeni oturum AÇMA, kullanıcıya 'Oturumu sıkıştır' öner. Yeni oturum kaçınılmazsa ve burada `list_triggers`
+> görevleri başka oturuma bağlı gösteriyorsa: eskileri sil, `docs/zamanlanmis_gorevler.md` içindeki metinlerle yeniden kur, kullanıcıya söyle.
+
 Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar). Kullanım: `KULLANIM.md`. Veri: `data/`, defter: `predictions/ledger.csv`.
 
 ## Kullanıcı ve iletişim
@@ -33,7 +38,7 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
 ## Zamanlanmış görevler (BU OTURUMA bağlı: yeni oturum açılırsa çalışmaz!)
 - Salı 08:47 (İstanbul): `trig_019wZe5FaZmjq7naYgZF19Bg` sonuç işleme + rapor.
 - Perşembe 09:41: `trig_01AB8vPq5Me3KQh2boRNZmME` FotMob xG çekimi (8 yarışma).
-- Oturum: `session_013GrRe5XCnSDLBzoVtDLj2c`. Bağlam şişerse yeni oturum AÇMA: 'Oturumu sıkıştır' kullan. Yeni oturum şart olursa görevleri yeniden kur.
+- Oturum: `session_013GrRe5XCnSDLBzoVtDLj2c`. Tam metinler ve yeniden kurma adımları: `docs/zamanlanmis_gorevler.md`.
 
 ## Veri kaynakları (durum)
 - football-data CSV (skor, oran): sürekli. FotMob (xG, haber): bulut ortamından çalışıyor, resmi olmayan uç nokta.
