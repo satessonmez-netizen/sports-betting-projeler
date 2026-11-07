@@ -101,7 +101,9 @@ def cmd_add(a):
             if pd.notna(led.at[i, "hg"]) or kick <= now:
                 print(f"  [reddedildi] {key}: maç başlamış/bitmiş, tahmin değiştirilemez")
                 continue
-            for k in ("pick", "pH", "pD", "pA", "score", "conf", "note"):
+            for k in ("pick", "pH", "pD", "pA", "score", "conf", "note", "inj_pH", "inj_pD", "inj_pA"):
+                if k not in row:
+                    continue
                 led.at[i, k] = row[k]
             led.at[i, "revision"] = int(led.at[i, "revision"]) + 1
             revised += 1
