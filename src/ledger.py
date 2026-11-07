@@ -6,6 +6,7 @@ Komutlar:
   python ledger.py settle                  # biten maçların sonucunu ve kapanış oranlarını işle
   python ledger.py report                  # sayılarla rapor (reports/weekly_<tarih>.md)
   python ledger.py errors                  # yanıldığım maçlar ve nedenleri
+  python ledger.py dc                      # bekleyen maçlar için çifte şans tablosu
 
 Kurallar (dürüstlük için):
 - Maç başladıktan sonra kaydedilen tahmin 'late=1' olur ve hiçbir istatistiğe girmez.
@@ -110,6 +111,35 @@ def cmd_add(a):
     print(f"{added} eklendi, {revised} güncellendi, {late} geç. Toplam {len(led)} satır.")
 
 
+DRAW_RISK = 0.27
+
+
+def dc_label(pH, pD, pA, pick=None):
+    """Çifte şans. Beraberlik riski yüksekse (pD >= %27) benim tahminim + beraberlik (1X / X2);
+    değilse en az olası sonucu dışarıda bırak (en çok kapsama). Döner: (etiket, kapsanan olasılık)."""
+    p = {"1": pH, "X": pD, "2": pA}
+    if pD >= DRAW_RISK and str(pick) in ("1", "2"):
+        return ("1X", pH + pD) if str(pick) == "1" else ("X2", pD + pA)
+    out = min(p, key=p.get)
+    lab = {"2": "1X", "1": "X2", "X": "12"}[out]
+    return lab, 1 - p[out]
+
+
+def cmd_dc(a):
+    led = read()
+    u = led[led.hg.isna() & (led.late == 0)].sort_values(["date", "time_uk"])
+    if u.empty:
+        print("Bekleyen geçerli maç yok.")
+        return
+    tot = 0
+    for r in u.itertuples():
+        lab, p = dc_label(r.pH, r.pD, r.pA, r.pick)
+        tot += p
+        risk = "  [beraberlik riski yüksek]" if r.pD >= DRAW_RISK else ""
+        print(f"{r.date} {r.time_uk} | {r.home} - {r.away} | tek: {r.pick} | çifte şans: {lab} (%{p*100:.0f}){risk}")
+    print(f"Beklenen çifte şans isabeti: %{100*tot/len(u):.0f} (n={len(u)})")
+
+
 def cmd_settle(a):
     led = read()
     res = load()
@@ -174,6 +204,13 @@ def cmd_report(a):
     else:
         o, y, mine, mk = _eval(s)
         lines += ["", "## Genel", _fmt(o)]
+        hit, exp = [], []
+        for r in s.itertuples():
+            lab, p = dc_label(r.pH, r.pD, r.pA, r.pick)
+            res = "1" if r.hg > r.ag else "X" if r.hg == r.ag else "2"
+            hit.append(res in lab)
+            exp.append(p)
+        lines.append(f"Çifte şans: isabet %{100*np.mean(hit):.0f}, beklenen %{100*np.mean(exp):.0f} (n={len(hit)})")
         if o["n"] < SEG_MIN:
             lines.append(f"\n⚠ n={o['n']} < {SEG_MIN}: bu sayılardan 'iyi/kötü gidiyoruz' sonucu ÇIKARMA. Gürültü büyük.")
         # açılıştan kapanışa piyasa hareketi (aynı şirket: Bet365)
@@ -238,5 +275,6 @@ if __name__ == "__main__":
     sub.add_parser("settle").set_defaults(f=cmd_settle)
     sub.add_parser("report").set_defaults(f=cmd_report)
     sub.add_parser("errors").set_defaults(f=cmd_errors)
+    sub.add_parser("dc").set_defaults(f=cmd_dc)
     a = ap.parse_args()
     a.f(a)
