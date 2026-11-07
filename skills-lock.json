@@ -1,12 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "betting": {
-      "source": "machina-sports/sports-skills",
-      "sourceType": "github",
-      "skillPath": "skills/betting/SKILL.md",
-      "computedHash": "922267779eb813239f4e71c4dc53d826988894e9344ef4adf45caf4e72b65e04"
-    },
     "football-data": {
       "source": "machina-sports/sports-skills",
       "sourceType": "github",
