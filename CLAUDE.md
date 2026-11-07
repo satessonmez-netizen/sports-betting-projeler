@@ -33,7 +33,12 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
 - **Sakat/ceza SABİT FORMÜL:** `match_pack.py injury_tilt` (gamma=1.0, mevki ağırlığı kaleci 1.3 / forvet-kanat 1.1, diğer 1.0, eksik değer payı farkı).
   Elle keyfi olasılık ayarı YOK. Çıktı pakette `model_sakatlık_ayarlı`, deftere `inj_pH/pD/pA` olarak yazılır (ilk tahminden ayrı izlenir).
   100+ maçta hangisi (benim tahmin / model / sakatlık formülü / piyasa) daha iyi bakılacak. Parametreler DENEYSEL, kanıtsız.
-- Kullanıcı eksik araştırma maddeleri teklifi: takvim yoğunluğu, hakem, saha/seyirci cezası, lig hedefi (henüz onaylanmadı).
+- **Ek araştırma maddeleri (kullanıcı 'hepsini ekle' dedi, 8 Kasım 2026):** hepsi RİSK NOTU, olasılığa elle katılmaz (kanıtsız).
+  1) Takvim yoğunluğu: pakette `takvim` (lig CSV'sinden gün/maç sayısı); kupa/Avrupa maçını web'den ben kontrol ederim.
+  2) Lig hedefi: pakette `lig_hedefi` (sıra, puan, lidere/son sıraya fark); şampiyonluk/Avrupa/küme düşme baskısını gerekçede yaz.
+  3) Hakem: web aramasıyla ben bakarım (hakem 1-2 gün önce açıklanır; kart/penaltı eğilimi). Bulamazsam 'bilinmiyor' yaz.
+  4) Saha/seyirci: web aramasıyla ben bakarım (seyirci cezası, deplasman taraftarı yasağı, suni çim, saha durumu).
+  5) Hava (yukarıda). Her maçın gerekçesine bu 5 başlıktan önemli olanı kısaca yaz; önemsizse yazma.
 
 ## Haftalık akış
 1. Kullanıcı maç listesi verir (metin/ekran görüntüsü). Takım adları football-data biçiminde (Fenerbahce, Besiktas, Man United, Ath Madrid...).

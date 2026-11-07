@@ -137,6 +137,33 @@ def value_tilt(model, vh, va):
             "not": "DENEYSEL: takım değeri oranı (beta=0.098); kanıt zayıf"}
 
 
+def takvim(h, team, now):
+    """Son maçtan beri gün ve son 14 günde maç (yalnız lig CSV'si: kupa/Avrupa maçı YOK, onları web'den bak)."""
+    g = h[((h.home == team) | (h.away == team)) & (h.date < now)].sort_values("date")
+    if g.empty:
+        return None
+    return {"son_maçtan_beri_gün": int((now - g.date.iloc[-1]).days),
+            "son_14_günde_lig_maçı": int((g.date >= now - pd.Timedelta(days=14)).sum()),
+            "not": "kupa/Avrupa maçları dahil değil; web'den kontrol et"}
+
+
+def hedef(h, team, now):
+    """Bu sezon puan durumu: sıra, puan, lider/Avrupa/küme düşme çizgisine fark (motivasyon notu)."""
+    start = pd.Timestamp(now.year if now.month >= 7 else now.year - 1, 7, 1)
+    g = h[(h.date >= start) & (h.date < now)]
+    pts = {}
+    for r in g.itertuples():
+        pts[r.home] = pts.get(r.home, 0) + (3 if r.hg > r.ag else 1 if r.hg == r.ag else 0)
+        pts[r.away] = pts.get(r.away, 0) + (3 if r.ag > r.hg else 1 if r.hg == r.ag else 0)
+    if team not in pts:
+        return None
+    tbl = sorted(pts.items(), key=lambda x: -x[1])
+    n = len(tbl)
+    rank = [t for t, _ in tbl].index(team) + 1
+    return {"sıra": f"{rank}/{n}", "puan": pts[team], "lidere_fark": tbl[0][1] - pts[team],
+            "son_sıraya_fark": pts[team] - tbl[-1][1], "oynanan_takım_sayısı": n}
+
+
 INJ_GAMMA = 1.0  # DENEYSEL, kanıtsız: iki takımın ağırlıklı eksik payı farkı (0-1) başına log-oran kayması
 
 
@@ -251,6 +278,8 @@ def main():
             aa = entry["transfermarkt"][m["away"]].get("ağırlıklı_eksik_payı")
             if ah is not None and aa is not None:
                 entry["model_sakatlık_ayarlı"] = injury_tilt(entry["model"], ah, aa)
+        entry["takvim"] = {t: takvim(h, t, now) for t in (m["home"], m["away"])}
+        entry["lig_hedefi"] = {t: hedef(h, t, now) for t in (m["home"], m["away"])}
         pack.append(entry)
     out_dir = ROOT / "output"
     out_dir.mkdir(exist_ok=True)
