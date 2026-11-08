@@ -85,6 +85,8 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 
 - 2026-11-08 | Napoli 1-1 Lazio (kullanıcı bildirdi). Tahmin 2 (Lazio) Düşük: yön TUTMADI, skor 1-1 TUTTU. X2 çifte şans tuttu. Kupon tercihi tek 2 @2.59 tutmadı. Varsayımsal 5 tekli bahiste bu bacak −100$. Kombine (43.6) bu maçta bozuldu. 5'li çifte şans kuponunda Napoli X2 bacağı tuttu.
 
+- 2026-11-08 sonuçları (ESPN, hepsi bitti; Salı CSV ile doğrula): 34 maç (7-8 Kasım). Yön 25/34 (%73), çifte şans 30/34 (%88). 8 Kasım: yön 20/28, çifte şans 25/28; 5'li çifte şans kuponu TUTTU (oran 3.23); tekli 5 bahis net +135$ (Napoli ve Fiorentina kaybetti); 43.6'lık kombine tutmadı. Kayıp yönlerin 5'i beraberlikti (Napoli, Man Utd 4-4, Celta 0-0, Fiorentina 2-2, Le Mans 1-1). n=34, sonuç çıkarılmaz.
+
 ## Bekleyen işler
 **Salı 10 Kasım 2026 sabahı (Pazartesi'den ertelendi): kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
 1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).
