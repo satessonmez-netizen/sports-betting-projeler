@@ -83,6 +83,8 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 
 - 2026-11-07 sonuçları (ESPN, sports-skills; CSV gelince Salı settle ile doğrula): Eyüpspor 0-2 Kocaelispor, Samsunspor 1-0 Konyaspor, Galatasaray 4-3 Amedspor, Göztepe 1-2 Başakşehir, Stuttgart 1-0 Bremen, Valencia 0-3 Real Madrid. Yön: 5/6 doğru (sadece Göztepe yanlış). n=6, sonuç çıkarılmaz.
 
+- 2026-11-08 | Napoli 1-1 Lazio (kullanıcı bildirdi). Tahmin 2 (Lazio) Düşük: yön TUTMADI, skor 1-1 TUTTU. X2 çifte şans tuttu. Kupon tercihi tek 2 @2.59 tutmadı. Varsayımsal 5 tekli bahiste bu bacak −100$. Kombine (43.6) bu maçta bozuldu. 5'li çifte şans kuponunda Napoli X2 bacağı tuttu.
+
 ## Bekleyen işler
 **Salı 10 Kasım 2026 sabahı (Pazartesi'den ertelendi): kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
 1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).
