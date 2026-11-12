@@ -42,6 +42,8 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
 
 - **Kupon tercihi (8 Kasım 2026, kullanıcı onayı):** oranlı listeyle 'gerçek kupon yapsaydın' tercihi deftere ayrı sütun: `kupon`, `kupon_oran`, `kupon_dahil` (`python3 ledger.py kupon --file predictions/kupon_<tarih>.csv`, maç başlamadan). Rapor kağıt üstü tekli getiri verir. Bahisçi payı ~%15-18, çifte şans oranları ~1.05-1.3: gerçek para önerisi DEĞİL.
 
+- **Milli maçlar (12 Kasım 2026):** model/oran verisi yok; tahminler elle (UEFA sonuçları + Transfermarkt). AYRI dosya: `predictions/milli_<tarih>.csv` (kulüp defterine KARIŞTIRMA). TM için kullanıcı PC'sinde `py milli_pack.py ..\\matches_<tarih>_milli.txt`. ESPN paketi (sports-skills) bu maçları vermiyor; sonuçlar UEFA/Wikipedia'dan.
+
 ## Haftalık akış
 1. Kullanıcı maç listesi verir (metin/ekran görüntüsü). Takım adları football-data biçiminde (Fenerbahce, Besiktas, Man United, Ath Madrid...).
 2. Bulut: `cd src && python3 -W ignore match_pack.py <liste.txt> --no-tm --no-download` (model, form, FotMob xG notu, haberler). Önce `python3 refresh_data.py` ile veriyi yenile.
