@@ -96,7 +96,12 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 5. Salı 08:47 otomatik rapor görevi ve Perşembe 09:41 FotMob çekimi ayrıca çalışıyor.
 
 ## Canlı defterden dersler (güncellenecek)
-(Henüz yok. İlk 14 geçerli tahmin 6-9 Kasım 2026 haftasında kaydedildi.)
+**12 Kasım 2026 itibarıyla (n=47 geçerli maç, 6-8 Kasım; 100'ün altında: SONUÇ ÇIKARILMAZ, sadece sayılar):**
+- İsabet: ben %68, piyasa %70, model %68. RPS: ben 0.1827, piyasa 0.1606, model 0.1790.
+- Çifte şans (Orta/Düşük, n=40): isabet %82, beklenen %72. Güven: Yüksek 7/7, Orta %77 (n=22), Düşük %44 (n=18).
+- Kağıt üstü: 28 kupon tercihi 23 tuttu, net +2.71 birim; 5 tekli bahis net +135$; 5'li çifte şans kuponu tuttu (3.23); 43.6'lık kombine tutmadı.
+- 15 yanlış yönün 8'i beraberlik. Piyasadan >=8 puan ayrıştığım 22 maçta RPS'im piyasadan belirgin kötü (0.171 vs 0.135): izlenecek.
+- Teknik not: olasılıklar eşitse (Rennes-Lille .36/.28/.36) rapor 'tahmin 1' sayıyor, oysa pick 2 idi ve tuttu; isabet 1 maç eksik görünüyor.
 
 ## Kurallar
 - Tahmin maç başlamadan kaydedilir. Başlamış maçın tahmini 'late' sayılır.
