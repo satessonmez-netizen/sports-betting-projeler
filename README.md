@@ -75,3 +75,9 @@ Model ile piyasa farkı (RPS, 738 maç, fark +0.0109, %95 aralık [0.0068, 0.014
 **Bulgu:** Fark en çok deplasmanda oynayan favori maçlarında açılıyor. Bu maçlarda deplasman takımı gerçekte %57 kazanmış,
 model %45.5, piyasa %50.2 vermiş. Model güçlü takımları fazla ortalamaya çekiyor (düzenleme + Elo karışımı).
 Kısıt: 235 maç, gürültü payı yüksek. Piyasa da bu segmentte düşük kalmış, yani kısmen şans olabilir.
+
+
+## Güncel durum (12 Kasım 2026)
+Canlı tahmin defteri çalışıyor (`predictions/ledger.csv`, 49 maç, n<100: yorum yok). Kâğıt üstü kupon/bahis kayıtları, milli maç
+tahminleri (elle, ayrı dosya), PDF/JPEG rapor betikleri (`tools/rapor/`) ve zamanlanmış görevler eklendi. Yeni oturum için
+başlangıç noktası: `CLAUDE.md` ve `docs/DEVIR_TESLIM.md`. Deney sonuçları ve kullanıcı notları: `NOTLAR.md`.

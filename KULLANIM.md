@@ -62,3 +62,29 @@ Her çalıştırma `data/fotmob/snapshots/<lig>_<tarih>.csv` yazar ve `data/fotm
 `python fotmob_news.py --team "Man United"` o takımın son haberlerini yazdırır. `match_pack.py` her çalıştığında haberleri
 günceller ve `haber_basliklari` bloğuna ekler (kapatmak için `--no-news`). Genel İngilizce akış: Avrupa liglerinde iyi,
 Süper Lig'de zayıf kapsıyor.
+
+
+## Milli takım maçları (12 Kasım 2026'da eklendi)
+1. Yeni ZIP indir (GitHub, dal `ccr-53ccebd7-15qd1c`, Code, Download ZIP, Tümünü ayıkla): ZIP'te `git pull` çalışmaz.
+2. Klasörde adres çubuğuna `cmd` yaz, `cd src`, sonra:
+   `py milli_pack.py ..\matches_2026-11-13_milli.txt`   (30 takım, 6-7 dakika, Ctrl+C yapma)
+3. `output\milli_pack_<tarih>.md` içeriğini kopyalayıp yapıştır. Çıktıda `UYARI_kimlik` varsa o takımın sayfası yanlış demektir: bana bildir.
+Takım adları `data/tm_clubs.csv` içindeki `NT` satırlarındaki gibi (France, Turkey, Czech Republic...). Yeni takım için bir satır ekle
+(`NT,<ad>,<tm_slug>,<tm_id>,<başlıkta geçen ad|alternatif>`).
+
+## Kâğıt üstü kupon/bahis kayıtları ve sonuç özeti
+```bash
+cd src
+python ledger.py kupon   --file ../predictions/kupon_2026-11-08.csv     # home,away,secim,oran,kupon
+python ledger.py bahis   --file ../predictions/bahis_2026-11-08.csv     # home,away,secim,oran,tutar
+python ledger.py kombine --file ../predictions/kombine_2026-11-08.csv --tutar 100
+python milli_report.py ../predictions/milli_2026-11-13.csv              # milli maçlar (hg/ag elle doldurulur)
+```
+Kayıtlar maç başlamadan yapılır. `python ledger.py report` sonuçlar gelince net kâr/zararı yazar (n<100 iken yorum yok).
+
+## PDF / JPEG raporlar
+`tools/rapor/README.md` içinde. Bulut oturumunda: `node tools/rapor/pdf.js girdi.html cikti.pdf`.
+
+## ESPN skor ve Avrupa maçı kontrolü
+`pip install sports-skills`, sonra `sports-skills football get_daily_schedule --date=2026-11-08`. Skorlar için hızlı bakış;
+resmi doğrulama football-data CSV ile (`refresh_data.py` + `ledger.py settle`, 1-2 gün gecikebilir).

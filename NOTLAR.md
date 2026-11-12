@@ -87,13 +87,12 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 
 - 2026-11-08 sonuçları (ESPN, hepsi bitti; Salı CSV ile doğrula): 34 maç (7-8 Kasım). Yön 25/34 (%73), çifte şans 30/34 (%88). 8 Kasım: yön 20/28, çifte şans 25/28; 5'li çifte şans kuponu TUTTU (oran 3.23); tekli 5 bahis net +135$ (Napoli ve Fiorentina kaybetti); 43.6'lık kombine tutmadı. Kayıp yönlerin 5'i beraberlikti (Napoli, Man Utd 4-4, Celta 0-0, Fiorentina 2-2, Le Mans 1-1). n=34, sonuç çıkarılmaz.
 
-## Bekleyen işler
-**Salı 10 Kasım 2026 sabahı (Pazartesi'den ertelendi): kupon değerlendirme görüşmesi (kullanıcı ile).** Hazırlık:
-1. `cd src && python3 refresh_data.py` (güncel sonuçlar; football-data CSV'leri 1-2 gün gecikebilir, sonuç gelmediyse kullanıcıdan sonuçları iste).
-2. `python3 ledger.py settle`, sonra `report`, `errors`, `dc`.
-3. Maç maç konuş: tahmin vs sonuç, ilk tahmin ile revize tahmin farkı (özellikle Atlético-Barça: analist %45, kullanıcı kararı %40), Yüksek güvenli 3 maçın (Galatasaray, Real Madrid, Beşiktaş) tutup tutmadığı, çifte şans isabeti.
-4. n=14 (Gaziantep-Kasımpaşa 'geç' kayıt, sayılmaz) çok az: sonuç çıkarma, sadece dersleri not al.
-5. Salı 08:47 otomatik rapor görevi ve Perşembe 09:41 FotMob çekimi ayrıca çalışıyor.
+## Bekleyen işler (12 Kasım 2026 itibarıyla; ayrıntı docs/DEVIR_TESLIM.md bölüm 12)
+1. Zamanlanmış görevleri (Salı 08:47 rapor, Perşembe 09:41 FotMob) yeni oturuma yeniden kur: `docs/zamanlanmis_gorevler.md`. (Eski oturumda ikisi de çalıştı: 10 ve 12 Kasım.)
+2. Milli maç tahminlerinin 5 geçici satırını revize et, sonuçları `predictions/milli_2026-11-13.csv` hg/ag'a yaz, `src/milli_report.py` çalıştır.
+3. 8 Kasım kupon değerlendirmesi YAPILDI (Pazartesi/Salı yerine pazar-pazartesi, PDF'lerle). Salı görevi resmi sayıları işledi (n=47).
+4. 50 maçlık ek liste beklemede; ücretli kaynak kararı 100+ geçerli maçta (şu an 47).
+5. Fikir listesi (onay yok): mevki testi, zirve maçı motivasyonu, hoca değişikliği, favori hafife alma düzeltmesi, rapor eşit-olasılık hatası, milli_pack mevki desteği, 5'li çifte şans kuponunu deftere yaz, `EU_COMPS` kapsamını genişlet (Milan Perşembe maçı görünmedi).
 
 ## Canlı defterden dersler (güncellenecek)
 **12 Kasım 2026 itibarıyla (n=47 geçerli maç, 6-8 Kasım; 100'ün altında: SONUÇ ÇIKARILMAZ, sadece sayılar):**
@@ -102,6 +101,22 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 - Kağıt üstü: 28 kupon tercihi 23 tuttu, net +2.71 birim; 5 tekli bahis net +135$; 5'li çifte şans kuponu tuttu (3.23); 43.6'lık kombine tutmadı.
 - 15 yanlış yönün 8'i beraberlik. Piyasadan >=8 puan ayrıştığım 22 maçta RPS'im piyasadan belirgin kötü (0.171 vs 0.135): izlenecek.
 - Teknik not: olasılıklar eşitse (Rennes-Lille .36/.28/.36) rapor 'tahmin 1' sayıyor, oysa pick 2 idi ve tuttu; isabet 1 maç eksik görünüyor.
+
+## Oranlı bahis analizi (8-9 Kasım 2026, kullanıcının oranlı PDF'leri)
+- Kullanıcının bülteninde 1X2 payı ~%15-18 (ör. 1.07/6.52/10.65 toplam ters oran 1.18). Pinnacle ~%2-3. Hangi site olduğu bilinmiyor (kullanıcıya soruldu, cevap gelmedi).
+- Çifte şans oranları 1.05-1.30 (favori tarafta 1.0'ın altına bile inebilir; bazı maçlarda kapalı '-'); payı tekliden büyük → 'güvenmiyorsan çifte şans' kuralı ödemede değersiz, ama kullanıcının kuralı olarak tahmin kayıtlarında KALDI.
+- Beklenen getiri: tekli −%7..−%25, 5'li kombine −%45..−%50. Kendi olasılığımı piyasaya karıştırıp EV'yi maksimize edince underdog seçiliyor (model favori hafife alıyor) → güvenilmez.
+- Kâğıt üstü sonuçlar: 28 tercih 23 tuttu (+2.71 birim), 5 tekli bahis +135$, 5'li çifte şans kuponu tuttu (3.23), 43.6'lık kombine tutmadı. Tek haftalık şans payı büyük; sonuç çıkarılmaz.
+- Kullanıcının hedefi 'tüm kuponlar tutsun' denince itiraz edildi: gerçekçi hedef hatayı azaltmak ve güveni doğru kurmak (%70 dediğim 10'da 7).
+
+## Araçlar ve beceriler (8-12 Kasım 2026)
+- `sports-skills` (pip): ESPN skor/fikstür, Avrupa maçı kontrolü. `football-data` becerisi repoda (`.agents/skills`), `betting` kaldırıldı. Kullanıcı: bu proje dışındaki uygulama/becerilerle işin yok.
+- PDF/JPEG betikleri `tools/rapor/`. Milli maç araçları `src/milli_pack.py`, `src/milli_report.py`.
+- wttr.in hava (web-fetch agent), UEFA/Wikipedia milli sonuçlar (web-fetch agent). Hakem/ilk 11 web aramasıyla çoğu zaman bulunamadı.
+
+## Milli maçlar (12 Kasım 2026)
+- Kapsam dışı sistem: model/oran/ESPN verisi yok. 15 maç elle tahmin (`predictions/milli_2026-11-13.csv`), TM özeti `data/milli_tm_2026-11-12.csv`. Kulüp defterine KARIŞTIRMA.
+- Bilgi: Macaristan'da Szoboszlai yok (kadro değerinin %51'i), Sırbistan %11, Danimarka %9, İskoçya %8 eksik. Türkiye A1'de 0 puan (11 yedi). Ayrıntı ve tablolar: `docs/DEVIR_TESLIM.md` bölüm 9.
 
 ## Kurallar
 - Tahmin maç başlamadan kaydedilir. Başlamış maçın tahmini 'late' sayılır.

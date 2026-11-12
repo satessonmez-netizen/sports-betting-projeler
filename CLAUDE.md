@@ -1,9 +1,12 @@
 # CLAUDE.md: önce bunu oku (oturum başında ve bağlam sıkıştırıldıktan sonra)
 
+> **YENİ OTURUMDAYSAN: önce `docs/DEVIR_TESLIM.md` oku** (12 Kasım 2026 tam devir teslim: ilk yapılacaklar, sistem haritası, kullanıcı kuralları, bekleyen işler).
+
 > ## EN ÖNEMLİ UYARI: zamanlanmış görevler OTURUMA bağlıdır
 > Salı (sonuç raporu) ve Perşembe (FotMob xG) görevleri, kurulduğu oturuma bağlı. **Yeni oturum açılırsa BOZULUR.**
 > Bağlam şişerse yeni oturum AÇMA, kullanıcıya 'Oturumu sıkıştır' öner. Yeni oturum kaçınılmazsa ve burada `list_triggers`
 > görevleri başka oturuma bağlı gösteriyorsa: eskileri sil, `docs/zamanlanmis_gorevler.md` içindeki metinlerle yeniden kur, kullanıcıya söyle.
+> **12 Kasım 2026: kullanıcı yeni oturum açıyor → görevler büyük ihtimalle eski oturuma bağlı kaldı. İLK İŞİN `list_triggers` ve yeniden kurulum.**
 
 Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar). Kullanım: `KULLANIM.md`. Veri: `data/`, defter: `predictions/ledger.csv`.
 
@@ -57,11 +60,19 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
 - Perşembe 09:41: `trig_01AB8vPq5Me3KQh2boRNZmME` FotMob xG çekimi (8 yarışma).
 - Oturum: `session_013GrRe5XCnSDLBzoVtDLj2c`. Tam metinler ve yeniden kurma adımları: `docs/zamanlanmis_gorevler.md`.
 
+## Ek komutlar ve araçlar
+- Kâğıt üstü bahis kayıtları: `ledger.py kupon|bahis|kombine --file ...` (maç başlamadan). Milli maçlar: `src/milli_pack.py` (kullanıcı PC'sinde), `src/milli_report.py`.
+- PDF/JPEG üretimi: `tools/rapor/` (README'si var). ESPN skor/Avrupa maçı: `sports-skills football get_daily_schedule --date=YYYY-MM-DD` (`pip install sports-skills`). Hava: wttr.in (web-fetch agent).
+- Tuzak: `match_pack.py` çıktısı `output/match_pack_<bugün>.json` aynı gün ÜZERİNE yazılır; `ledger.py report` `reports/weekly_<tarih>.md`'yi ezer.
+
 ## Veri kaynakları (durum)
 - football-data CSV (skor, oran): sürekli. FotMob (xG, haber): bulut ortamından çalışıyor, resmi olmayan uç nokta.
 - Transfermarkt canlı: sadece kullanıcının PC'si. API-Football/Bigballsdata/FootyStats: bırakıldı/ücretli (NOTLAR'a bak).
 - Model: Dixon-Coles + Elo, bahisçinin gerisinde (RPS +0.005..0.011). Deneylerde model piyasaya bilgi eklemedi.
 
-## Bekleyen
-- **Salı 10 Kasım 2026 sabahı (kullanıcı 8 Kasım'da Pazartesi yerine Salı dedi):** kuponun değerlendirmesi. 08:47 otomatik rapor görevi sonuçları işler, sonra kullanıcıyla maç maç konuş (hazırlık adımları `NOTLAR.md` 'Bekleyen işler'). Güncel durum: 8 Süper Lig maçı rev7'de, dün/bugün/ilk tahmin ayrı kayıtlı.
-- 50 maçlık ek liste kullanıcıdan gelecek (beklemeye alındı).
+## Bekleyen (12 Kasım 2026)
+- **Zamanlanmış görevleri yeni oturuma yeniden kur** (üstteki uyarı).
+- **Milli maç revizesi:** `predictions/milli_2026-11-13.csv` içinde 5 tahmin GEÇİCİ (Fransa-Türkiye, Belçika-İtalya, Hırvatistan-Çekya, İspanya-İngiltere, Almanya-Hollanda). 12-13 Kasım sonuçlarına göre revize et, sonra sonuçları `hg/ag`'a yaz, `src/milli_report.py`. Ayrıntı: `docs/DEVIR_TESLIM.md` bölüm 9.
+- Defter: 49 kayıt, hepsi resmi CSV ile sonuçlandı (6-8 Kasım). n=47 <100: yorum yok. Sayılar `NOTLAR.md` 'Canlı defterden dersler'.
+- Sıradaki kulüp maçları: milli aradan sonra kullanıcı yeni liste verecek.
+- 50 maçlık ek liste: beklemede (kullanıcıya sor).

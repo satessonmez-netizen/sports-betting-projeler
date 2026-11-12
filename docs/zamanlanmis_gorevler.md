@@ -5,6 +5,7 @@ görevler o oturumu uyandıramaz. Yeni oturumda:
 1. `list_triggers` ile mevcut görevlere bak. Eski oturuma bağlı olanları `delete_trigger` ile sil (çift çalışmasın).
 2. Aşağıdaki iki görevi `create_trigger` ile (varsayılan: bu oturuma bağlı) yeniden kur. `initiation: human_request`.
 3. Kullanıcıya haber ver.
+**Durum (12 Kasım 2026):** iki görev kurulduğu eski oturumda çalıştı (Salı 10 Kasım 08:47, Perşembe 12 Kasım 09:41). Kullanıcı YENİ oturum açıyor: görevler eski oturuma bağlı kalacağı için yeni oturumda silinip yeniden kurulmalı. `docs/DEVIR_TESLIM.md` bölüm 0 adım 3.
 Kurulum tarihi: 2026-11-06. Oturum o zaman: `session_013GrRe5XCnSDLBzoVtDLj2c`. Dal: `ccr-53ccebd7-15qd1c`.
 
 ## 1) Haftalık tahmin defteri sonuç işleme: Salı 08:47 (İstanbul)
@@ -25,3 +26,9 @@ Haftalık tahmin defteri işi (kullanıcı onayladı). Sırayla yap: 1) Repo kla
 ```
 Haftalık FotMob xG çekimi (kullanıcı onayladı, her Perşembe). Sırayla: 1) `git fetch origin ccr-53ccebd7-15qd1c && git checkout ccr-53ccebd7-15qd1c && git pull origin ccr-53ccebd7-15qd1c`. 2) `cd src && python3 -W ignore fotmob_stats.py` (data/fotmob/leagues.csv içindeki aktif tüm ligler; tarihli anlık görüntü ve history.csv'ye ekleme). 3) Çıktıda ✗ ile başarısız istatistik veya '[uyarı] eşleşmeyen takımlar' varsa not et: eşleşmeyen takımlar için data/fotmob/team_names.csv'ye doğru eşleşmeyi ekle (emin değilsen eklemeden kullanıcıya sor). 4) Değişiklikleri (data/fotmob/) commit'le ve ccr-53ccebd7-15qd1c dalına push et. 5) Kullanıcıya Türkçe, 3-4 kısa madde ile özetle: kaç lig/takım çekildi, hata var mı, ve bu hafta xG'de dikkat çeken 2-3 şey (örn. şans göstergesi en uç takımlar). Sonuçlardan 'iyi/kötü gidiyoruz' çıkarma. Yeni tahmin yazma. Not: FotMob resmi olmayan uç nokta; hata (403/429) alırsan tekrar tekrar deneme, kullanıcıya bildir.
 ```
+
+## Notlar (kurulumdan sonra öğrenilenler)
+- Perşembe çekimi 8 yarışma × ~20 takım için 110 saniyeyi AŞABİLİR (ilk denemede kesildi): arka planda çalıştır (`run_in_background`), bitince `git add data/fotmob` + commit + push. Kesilirse güvenle tekrar çalıştırılabilir (aynı gün tekrarında history çoğalmaz).
+- Salı görevi `ledger.py report`'u çalıştırınca `reports/weekly_<tarih>.md` yazılır (ezilir); n<100 iken NOTLAR'a yalnız sayılar yazılır.
+- Yeni sezonda FotMob sezon kimlikleri (`data/fotmob/leagues.csv`) güncellenmeli.
+- Her iki görev de 'yeni tahmin yazma' der; milli maç tahminleri bu görevlerin kapsamı dışında.
