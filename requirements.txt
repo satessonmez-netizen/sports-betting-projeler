@@ -7,3 +7,4 @@ requests
 penaltyblog
 beautifulsoup4
 lxml
+sports-skills   # ESPN skor/fikstür (Avrupa maçı kontrolü, canlı skor): sports-skills football get_daily_schedule --date=YYYY-MM-DD

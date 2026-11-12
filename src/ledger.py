@@ -7,6 +7,11 @@ Komutlar:
   python ledger.py report                  # sayılarla rapor (reports/weekly_<tarih>.md)
   python ledger.py errors                  # yanıldığım maçlar ve nedenleri
   python ledger.py dc                      # bekleyen maçlar için çifte şans tablosu
+  python ledger.py kupon  --file ../predictions/kupon_2026-11-08.csv   # 'gerçek kupon yapsaydın' tercihi (home,away,secim,oran,kupon)
+  python ledger.py bahis  --file ../predictions/bahis_2026-11-08.csv   # varsayımsal tekli bahis (home,away,secim,oran,tutar)
+  python ledger.py kombine --file ../predictions/kombine_2026-11-08.csv --tutar 100   # varsayımsal kombine (home,away,secim,oran)
+  (kupon/bahis/kombine: maç başlamadan kaydedilir; kâğıt üstü, gerçek bahis değil. Rapor net kâr/zararı gösterir.)
+  Defter sütunları: bkz. COLS. inj_p* = sakatlık formülü olasılığı; first_* = ilk tahmin; kupon*, bahis*, kombine* = kâğıt üstü bahis kayıtları.
 
 Kurallar (dürüstlük için):
 - Maç başladıktan sonra kaydedilen tahmin 'late=1' olur ve hiçbir istatistiğe girmez.
