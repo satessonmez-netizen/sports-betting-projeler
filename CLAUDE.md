@@ -72,7 +72,7 @@ Detaylı hafıza: `NOTLAR.md` (deney sonuçları, kullanıcı notları, kararlar
 
 ## Bekleyen (12 Kasım 2026)
 - **Zamanlanmış görevleri yeni oturuma yeniden kur** (üstteki uyarı).
-- **Milli maç revizesi:** `predictions/milli_2026-11-13.csv` içinde 5 tahmin GEÇİCİ (Fransa-Türkiye, Belçika-İtalya, Hırvatistan-Çekya, İspanya-İngiltere, Almanya-Hollanda). 12-13 Kasım sonuçlarına göre revize et, sonra sonuçları `hg/ag`'a yaz, `src/milli_report.py`. Ayrıntı: `docs/DEVIR_TESLIM.md` bölüm 9.
+- **Milli maçlar (15 Kasım güncellemesi):** 11/15 sonuçlandı (`predictions/milli_2026-11-13.csv` hg/ag dolu), kalan 4 maç 16 Kasım (Almanya-Hollanda, K.Makedonya-Slovenya, Yunanistan-Sırbistan, İsviçre-İskoçya): henüz oynanmadıysa 13-15 Kasım sonuçlarına göre revize edilebilir. Eski not: `predictions/milli_2026-11-13.csv` içinde 5 tahmin GEÇİCİ (Fransa-Türkiye, Belçika-İtalya, Hırvatistan-Çekya, İspanya-İngiltere, Almanya-Hollanda). 12-13 Kasım sonuçlarına göre revize et, sonra sonuçları `hg/ag`'a yaz, `src/milli_report.py`. Ayrıntı: `docs/DEVIR_TESLIM.md` bölüm 9.
 - Defter: 49 kayıt, hepsi resmi CSV ile sonuçlandı (6-8 Kasım). n=47 <100: yorum yok. Sayılar `NOTLAR.md` 'Canlı defterden dersler'.
 - Sıradaki kulüp maçları: milli aradan sonra kullanıcı yeni liste verecek.
 - 50 maçlık ek liste: beklemede (kullanıcıya sor).

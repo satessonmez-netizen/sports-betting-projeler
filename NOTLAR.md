@@ -87,6 +87,8 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 
 - 2026-11-08 sonuçları (ESPN, hepsi bitti; Salı CSV ile doğrula): 34 maç (7-8 Kasım). Yön 25/34 (%73), çifte şans 30/34 (%88). 8 Kasım: yön 20/28, çifte şans 25/28; 5'li çifte şans kuponu TUTTU (oran 3.23); tekli 5 bahis net +135$ (Napoli ve Fiorentina kaybetti); 43.6'lık kombine tutmadı. Kayıp yönlerin 5'i beraberlikti (Napoli, Man Utd 4-4, Celta 0-0, Fiorentina 2-2, Le Mans 1-1). n=34, sonuç çıkarılmaz.
 
+- 2026-11-15 | Milli maç sonuçları (UEFA; 15 Kas skorları yalnız Wikipedia, DOĞRULANMADI): Bulgaristan 0-5 İzlanda, Lihtenştayn 0-1 Azerbaycan, Lüksemburg 0-1 Estonya, Slovakya 2-2 Faroe, Gürcistan 0-2 Macaristan, Norveç 3-1 Galler, Portekiz 1-4 Danimarka, Fransa 2-1 Türkiye*, Belçika 4-1 İtalya*, Hırvatistan 2-1 Çekya*, İspanya 2-3 İngiltere*. Ayrıca 12 Kas: Türkiye 1-2 Belçika, İtalya 3-1 Fransa, Çekya 0-2 İspanya, İngiltere 2-1 Hırvatistan; 13 Kas: Hollanda 7-0 Yunanistan, Sırbistan 1-3 Almanya, İskoçya 2-1 K.Makedonya, Slovenya 0-0 İsviçre. n=11: yön 5/11, oynanacak seçim 6/11; Yüksek 2/3 (Slovakya-Faroe 2-2 kaçtı), Orta 3/4, Düşük 0/4 yön. 5 geçici tahmin REVİZE EDİLMEDİ (12 Kas akşamı sonuçlarına rağmen). Sonuç çıkarılmaz (n=11, modelsiz).
+
 ## Bekleyen işler (12 Kasım 2026 itibarıyla; ayrıntı docs/DEVIR_TESLIM.md bölüm 12)
 1. Zamanlanmış görevleri (Salı 08:47 rapor, Perşembe 09:41 FotMob) yeni oturuma yeniden kur: `docs/zamanlanmis_gorevler.md`. (Eski oturumda ikisi de çalıştı: 10 ve 12 Kasım.)
 2. Milli maç tahminlerinin 5 geçici satırını revize et, sonuçları `predictions/milli_2026-11-13.csv` hg/ag'a yaz, `src/milli_report.py` çalıştır.
