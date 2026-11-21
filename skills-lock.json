@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "football-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/football-data/SKILL.md",
+      "computedHash": "212fe1bdcaaac0108b3c446f1ee780f7af339b1cc3d950686e82d80d860e10f3"
+    }
+  }
+}
