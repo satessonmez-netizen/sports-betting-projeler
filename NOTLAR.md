@@ -99,6 +99,13 @@ Biçim: tarih | takım | bilgi | tahmine etkisi. Haber/teknik direktör/motivasy
 5. Fikir listesi (onay yok): mevki testi, zirve maçı motivasyonu, hoca değişikliği, favori hafife alma düzeltmesi, rapor eşit-olasılık hatası, milli_pack mevki desteği, 5'li çifte şans kuponunu deftere yaz, `EU_COMPS` kapsamını genişlet (Milan Perşembe maçı görünmedi).
 
 ## Canlı defterden dersler (güncellenecek)
+**26 Kasım 2026 itibarıyla (n=96 geçerli kulüp maçı, 100'ün altında: SONUÇ ÇIKARILMAZ, sadece sayılar):**
+- İsabet: ben %67, piyasa %65, model %64. RPS: ben 0.1808, piyasa 0.1682, model 0.1797. Çifte şans %85 (n=81, beklenen %74).
+- Güven: Yüksek 14/15 (%93), Orta %70 (n=44), Düşük %51 (n=37). Lige göre T1 %82 (n=17), SP1 %71, D1 %90, I1 %67, F1 %38 (n=13).
+- Piyasadan >=8 puan ayrıştığım 46 maçta RPS ben 0.1678, piyasa 0.1447 (piyasa daha iyi). Piyasaya yakın 50 maçta 0.1928 vs 0.1897.
+- Yalnız 21-23 Kasım haftası (n=49): isabet %65, RPS ben 0.1790, piyasa 0.1754, model 0.1804. **Sakat/ceza formülü (n=47) RPS 0.1881: benim ve modelin ikisinden de kötü.** Formülün işe yaradığına dair kanıt yok, n küçük, gürültü payı büyük. 100+ maçta yeniden bak, gerekirse gamma düşür ya da kaldır.
+- Büyük sürprizler: Atalanta 4-4 Inter, Marseille 2-3 Le Mans, Chelsea 1-4 Leeds, Amedspor 0-2 Rizespor (Yüksek), Man United 4-4 Villa.
+- Eski satırlar (12 Kasım, n=47) aşağıda:
 **12 Kasım 2026 itibarıyla (n=47 geçerli maç, 6-8 Kasım; 100'ün altında: SONUÇ ÇIKARILMAZ, sadece sayılar):**
 - İsabet: ben %68, piyasa %70, model %68. RPS: ben 0.1827, piyasa 0.1606, model 0.1790.
 - Çifte şans (Orta/Düşük, n=40): isabet %82, beklenen %72. Güven: Yüksek 7/7, Orta %77 (n=22), Düşük %44 (n=18).
