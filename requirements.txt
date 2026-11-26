@@ -1,0 +1,10 @@
+numpy
+pandas
+scipy
+requests
+# penaltyblog: PyPI'deki 'socks' bağımlılığı bozuk (boş paket). Önce şu şekilde kur:
+#   pip install --no-deps penaltyblog && pip install PySocks tqdm tabulate statsbombpy plotly matplotlib networkx pulp orjson fsspec html5lib ipywidgets kaleido cssselect cython
+penaltyblog
+beautifulsoup4
+lxml
+sports-skills   # ESPN skor/fikstür (Avrupa maçı kontrolü, canlı skor): sports-skills football get_daily_schedule --date=YYYY-MM-DD
